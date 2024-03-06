@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TitleScene : BaseScene
+public class GameScene : BaseScene
 {
     protected override void Init()
     {
@@ -18,6 +18,6 @@ public class TitleScene : BaseScene
 
     public override void Clear()
     {
-        Debug.Log("LoginScene Clear!");
+        Debug.Log("GameScene Clear!");
     }
 }

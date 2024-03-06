@@ -35,7 +35,7 @@ public class SceneManager : Singleton<SceneManager>
         StartCoroutine(LoadingRoutine(Enum.GetName(typeof(Define.Scene),scene)));
     }
 
-    IEnumerator LoadingRoutine(string sceneName)
+    IEnumerator LoadingRoutine(string scene)
     {
         fade.gameObject.SetActive(true);
         yield return FadeOut();
@@ -48,7 +48,7 @@ public class SceneManager : Singleton<SceneManager>
         Time.timeScale = 0f;
         loadingBar.gameObject.SetActive(true);
 
-        AsyncOperation oper = UnitySceneManager.LoadSceneAsync(sceneName);
+        AsyncOperation oper = UnitySceneManager.LoadSceneAsync(scene);
         while (oper.isDone == false)
         {
             loadingBar.value = oper.progress;

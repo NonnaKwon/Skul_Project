@@ -20,13 +20,7 @@ public class UI_TitleScene : UI_Scene
 
     void ClickStartButton()
     {
-        Manager.Scene.LoadScene(Define.Scene.Game);
-    }
-
-
-    private void Start()
-    {
-        Init();
+        Manager.Scene.LoadScene(Define.Scene.GameScene);
     }
 
 }

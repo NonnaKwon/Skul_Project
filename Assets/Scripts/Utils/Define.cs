@@ -6,8 +6,8 @@ public class Define
 {
     public enum Scene
     {
-        Title,
-        Game,
+        TitleScene,
+        GameScene,
         None
     }
 

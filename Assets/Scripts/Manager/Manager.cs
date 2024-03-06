@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public static class Manager
@@ -9,6 +10,7 @@ public static class Manager
     public static SceneManager Scene { get { return SceneManager.Instance; } }
     public static SoundManager Sound { get { return SoundManager.Instance; } }
     public static UIManager UI { get { return UIManager.Instance; } }
+
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void Initialize()
