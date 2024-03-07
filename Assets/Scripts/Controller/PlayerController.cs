@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public float XVelocity { get { return _rigid.velocity.x; } }
     [SerializeField] LayerMask _groundFind;
 
     //대가리 (이름, 스킬, 점프파워)
