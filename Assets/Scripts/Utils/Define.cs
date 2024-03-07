@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Define
 {
+    public const int MAX_JUMP_COUNT = 2;
+
     public enum Scene
     {
         TitleScene,
