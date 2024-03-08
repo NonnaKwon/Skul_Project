@@ -65,6 +65,8 @@ public class FightController : MonoBehaviour,IDamagable
         _baseAttackPoint.transform.localPosition = new Vector3(movePos, _attackPointPosition.y, _attackPointPosition.z);
     }
 
+
+
     private IEnumerator CoAttack()
     {
         _baseAttackPoint.Attack();

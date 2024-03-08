@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    //플레이어의 상태 : Idle, Attack, Interact, Die, 만약 공격중(점프공격아님)이면 움직일수없게
     public float XVelocity { get { return _rigid.velocity.x; } }
     [SerializeField] LayerMask _groundFind;
 
