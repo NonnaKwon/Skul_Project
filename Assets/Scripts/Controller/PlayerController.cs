@@ -8,14 +8,10 @@ public class PlayerController : MonoBehaviour
     public float XVelocity { get { return _rigid.velocity.x; } }
     [SerializeField] LayerMask _groundFind;
 
-    //대가리 (이름, 스킬, 점프파워)
-    private int _maxHp;
-    private int _hp;
     private float _moveSpeed;
     private float _jumpPower;
     private int _jumpCount;
-    
-
+   
     Vector3 _moveDir;
     Rigidbody2D _rigid;
     Animator _animator;
@@ -32,8 +28,6 @@ public class PlayerController : MonoBehaviour
         _renderer = GetComponentInChildren<SpriteRenderer>();
         _moveSpeed = 8.4f;
         _jumpPower = 13f;
-        _maxHp = 100;
-        _hp = _maxHp;
 
         _jumpEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/JumpEffect");
     }

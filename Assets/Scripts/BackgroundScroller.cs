@@ -9,7 +9,9 @@ public class BackgroundScroller : MonoBehaviour
     public Transform[] Layers;
 
     List<SpriteRenderer[]> _backgrounds;
+    BackgroundController _controller;
 
+    float spriteSize = 30f;
     float leftPosX = 0f;
     float leftPatchPos = 0;
     float rightPosX = 0f;
@@ -20,11 +22,8 @@ public class BackgroundScroller : MonoBehaviour
 
     private void Start()
     {
-        yScreenHalfSize = Camera.main.orthographicSize;
-        xScreenHalfSize = yScreenHalfSize * Camera.main.aspect;
-
-        leftPosX = -(xScreenHalfSize * 2);
-        rightPosX = xScreenHalfSize * 2;
+        leftPosX = -(spriteSize * 1.5f);
+        rightPosX = spriteSize * 1.5f;
 
         _backgrounds = new List<SpriteRenderer[]>();
         for (int i = 0; i < Layers.Length; i++)
@@ -32,8 +31,10 @@ public class BackgroundScroller : MonoBehaviour
             SpriteRenderer[] backgroundList = Layers[i].GetComponentsInChildren<SpriteRenderer>();
             _backgrounds.Add(backgroundList);
         }
-        rightPatchPos = rightPosX * _backgrounds[0].Length;
-        leftPatchPos = leftPosX * _backgrounds[0].Length;
+        leftPatchPos = -spriteSize * _backgrounds[0].Length;
+        rightPatchPos = spriteSize * _backgrounds[0].Length;
+
+        _controller = GetComponent<BackgroundController>();
     }
 
     private void Update()
@@ -43,15 +44,16 @@ public class BackgroundScroller : MonoBehaviour
         {
             for (int j = 0; j < _backgrounds[i].Length; j++)
             {
+                float playerPosX = _controller.PlayerPos.x;
                 Transform spritePosition = _backgrounds[i][j].gameObject.transform.transform;
                 spritePosition.Translate(Vector3.right * _xMove * MoveSpeeds[i] * Time.deltaTime);
 
-                if (spritePosition.position.x < leftPosX)
+                if (spritePosition.position.x < playerPosX + leftPosX)
                 {
                     Vector3 nextPos = spritePosition.position;
                     nextPos = new Vector3(nextPos.x + rightPatchPos, nextPos.y, nextPos.z);
                     spritePosition.position = nextPos;
-                }else if(spritePosition.position.x > rightPosX)
+                }else if(spritePosition.position.x > playerPosX + rightPosX)
                 {
                     Vector3 nextPos = spritePosition.position;
                     nextPos = new Vector3(nextPos.x + leftPatchPos, nextPos.y, nextPos.z);
