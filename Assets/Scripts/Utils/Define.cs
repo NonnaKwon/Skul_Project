@@ -36,12 +36,4 @@ public class Define
         Click,
     }
 
-    public enum StoryIndex
-    {
-        Tutorial01_1,
-        Tutorial01_2,
-        Tutorial01_3,
-        Tutorial01_4,
-    }
-
 }

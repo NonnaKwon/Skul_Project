@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     //플레이어의 상태 : Idle, Attack, Interact, Die, 만약 공격중(점프공격아님)이면 움직일수없게
     public float XVelocity { get { return _rigid.velocity.x; } }
+    public bool Movable { get; set; } = true;
     [SerializeField] LayerMask _groundFind;
 
     private float _moveSpeed;
@@ -33,7 +34,6 @@ public class PlayerController : MonoBehaviour
         _moveSpeed = 8.4f;
         _jumpPower = 13f;
         _dashPower = 20f;
-
         _jumpEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/JumpEffect");
         _dashEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/DashEffect");
     }
@@ -90,29 +90,39 @@ public class PlayerController : MonoBehaviour
 
     private void OnJump(InputValue value)
     {
-        if(_jumpCount < Define.MAX_JUMP_COUNT)
+        if (!Movable)
+            return;
+        if (_jumpCount < Define.MAX_JUMP_COUNT)
             Jump();
     }
 
     private void OnDown(InputValue value)
     {
-        if(_onPlatform != null)
+        if (!Movable)
+            return;
+        if (_onPlatform != null)
             PlatformDown();
     }
 
     private void OnMove(InputValue value)
     {
+        if (!Movable)
+            return;
         Vector2 moveDistance = value.Get<Vector2>();
         _moveDir.x = moveDistance.x;
     }
 
     private void OnDashR(InputValue value)
     {
+        if (!Movable)
+            return;
         StartCoroutine(CoDash('R'));
     }
 
     private void OnDashL(InputValue value)
     {
+        if (!Movable)
+            return;
         StartCoroutine(CoDash('L'));
     }
 

@@ -31,6 +31,7 @@ public class UI_Story : UI_Popup
 
     public void Load(string id)
     {
+        Manager.Game.Player.Movable = false;
         _index = 0;
         ScriptData script = ScriptDataList.GetData(id);
         GetText((int)Texts.NameText).text = script.Talker;
@@ -59,6 +60,7 @@ public class UI_Story : UI_Popup
     IEnumerator CoUnLoad()
     {
         _animator.Play("DownScript");
+        Manager.Game.Player.Movable = true;
         yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
     }
