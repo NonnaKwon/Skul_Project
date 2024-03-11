@@ -9,6 +9,7 @@ public class SceneManager : Singleton<SceneManager>
     [SerializeField] Image fade;
     [SerializeField] Slider loadingBar;
     [SerializeField] float fadeTime;
+    [SerializeField] UI_Story dialog;
 
     private BaseScene curScene;
 
@@ -33,6 +34,18 @@ public class SceneManager : Singleton<SceneManager>
     public void LoadScene(Define.Scene scene)
     {
         StartCoroutine(LoadingRoutine(Enum.GetName(typeof(Define.Scene),scene)));
+    }
+
+    public void StoryLoad(string id)
+    {
+        if(dialog.gameObject.activeSelf == false)
+            dialog.gameObject.SetActive(true);
+        dialog.Load(id);
+    }
+
+    public void StoryUnload()
+    {
+        dialog.Unload();
     }
 
     IEnumerator LoadingRoutine(string scene)

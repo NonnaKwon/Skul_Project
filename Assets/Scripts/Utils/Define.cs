@@ -13,6 +13,13 @@ public class Define
         None
     }
 
+    public enum GameSceneState
+    {
+        TutorialMap01,
+        TutorialMap02
+    }
+
+
     public enum UIEvent
     {
         Click,
@@ -29,5 +36,12 @@ public class Define
         Click,
     }
 
+    public enum StoryIndex
+    {
+        Tutorial01_1,
+        Tutorial01_2,
+        Tutorial01_3,
+        Tutorial01_4,
+    }
 
 }

@@ -11,7 +11,10 @@ public class PlayerController : MonoBehaviour
 
     private float _moveSpeed;
     private float _jumpPower;
+    private float _dashPower;
     private int _jumpCount;
+    private int _inputMoveCount;
+    private char _dashDir;
    
     Vector3 _moveDir;
     Rigidbody2D _rigid;
@@ -20,7 +23,7 @@ public class PlayerController : MonoBehaviour
     Platform _onPlatform;
 
     PooledObject _jumpEffect;
-    
+    PooledObject _dashEffect;
     private void Start()
     {
         _jumpCount = 0;
@@ -29,8 +32,10 @@ public class PlayerController : MonoBehaviour
         _renderer = GetComponentInChildren<SpriteRenderer>();
         _moveSpeed = 8.4f;
         _jumpPower = 13f;
+        _dashPower = 20f;
 
         _jumpEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/JumpEffect");
+        _dashEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/DashEffect");
     }
 
     private void Update()
@@ -71,6 +76,18 @@ public class PlayerController : MonoBehaviour
         _onPlatform.TurnOnTrigger();
     }
 
+    private void Dash()
+    {
+        Debug.Log("Dash Play");
+
+        _animator.Play("Dash");
+        Vector3 insPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        Manager.Pool.GetPool(_dashEffect, insPosition, transform.rotation);
+
+        _rigid.AddForce(Vector2.right * _moveDir * _dashPower,ForceMode2D.Impulse);
+        _rigid.velocity = new Vector2(_moveDir.x * _dashPower, _rigid.velocity.y);
+    }
+
     private void OnJump(InputValue value)
     {
         if(_jumpCount < Define.MAX_JUMP_COUNT)
@@ -88,6 +105,33 @@ public class PlayerController : MonoBehaviour
         Vector2 moveDistance = value.Get<Vector2>();
         _moveDir.x = moveDistance.x;
     }
+
+    private void OnDashR(InputValue value)
+    {
+        StartCoroutine(CoDash('R'));
+    }
+
+    private void OnDashL(InputValue value)
+    {
+        StartCoroutine(CoDash('L'));
+    }
+
+    IEnumerator CoDash(char dir)
+    {
+        float correntVelocityX = _rigid.velocity.x;
+
+        _inputMoveCount++;
+        if (_dashDir == dir && _inputMoveCount == 2)
+            Dash();
+        _dashDir = dir;
+
+        yield return new WaitForSeconds(0.3f);
+
+        _inputMoveCount = 0;
+        _dashDir = ' ';
+        _rigid.velocity = new Vector2(correntVelocityX,_rigid.velocity.y);
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

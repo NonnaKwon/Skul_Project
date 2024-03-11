@@ -7,6 +7,9 @@ public class PoolManager : Singleton<PoolManager>
 
     public void CreatePool(PooledObject prefab, int size, int capacity)
     {
+        if (poolDic.ContainsKey(prefab.GetInstanceID()))
+            return;
+
         GameObject gameObject = new GameObject();
         gameObject.name = $"Pool_{prefab.name}";
 

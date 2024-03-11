@@ -7,11 +7,10 @@ public abstract class BaseScene : MonoBehaviour
     public Define.Scene SceneType { get; protected set; } = Define.Scene.None;
     public abstract IEnumerator LoadingRoutine();
 
-    void Awake()
+    private void Awake()
     {
         Init();
     }
-
     protected virtual void Init()
     {
     }
