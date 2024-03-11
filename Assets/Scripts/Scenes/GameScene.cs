@@ -8,11 +8,12 @@ public class GameScene : BaseScene
     {
         base.Init();
         SceneType = Define.Scene.TitleScene;
+        Manager.Game.Player = FindObjectOfType<PlayerController>();
 
         PooledObject doubleJumpEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/JumpEffect");
         PooledObject dashEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/DashEffect");
         Manager.Pool.CreatePool(doubleJumpEffect, 3, 3);
-        Manager.Pool.CreatePool(dashEffect, 3, 3);
+        Manager.Pool.CreatePool(dashEffect, 5, 5);
     }
 
     public override IEnumerator LoadingRoutine()

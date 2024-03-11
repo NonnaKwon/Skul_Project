@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!Movable)
+            return;
         Move();
         if (_jumpCount > 0)
             _animator.SetFloat("ySpeed", _rigid.velocity.y);
@@ -78,8 +80,6 @@ public class PlayerController : MonoBehaviour
 
     private void Dash()
     {
-        Debug.Log("Dash Play");
-
         _animator.Play("Dash");
         Vector3 insPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         Manager.Pool.GetPool(_dashEffect, insPosition, transform.rotation);
@@ -106,8 +106,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnMove(InputValue value)
     {
-        if (!Movable)
-            return;
         Vector2 moveDistance = value.Get<Vector2>();
         _moveDir.x = moveDistance.x;
     }

@@ -28,7 +28,6 @@ public class FightController : MonoBehaviour,IDamagable
         _hp = _maxHp;
         _animator = GetComponent<Animator>();
         _attackPointPosition = _baseAttackPoint.gameObject.GetComponent<Transform>().localPosition;
-        Debug.Log(_attackPointPosition);
     }
 
 

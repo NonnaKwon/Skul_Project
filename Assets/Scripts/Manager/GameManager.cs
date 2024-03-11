@@ -6,6 +6,5 @@ public class GameManager : Singleton<GameManager>
     public PlayerController Player;
     private void Start()
     {
-        Player = FindObjectOfType<PlayerController>();
     }
 }

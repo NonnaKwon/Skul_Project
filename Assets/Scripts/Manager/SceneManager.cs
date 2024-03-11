@@ -6,6 +6,7 @@ using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
 
 public class SceneManager : Singleton<SceneManager>
 {
+    [SerializeField] GameObject loadingText;
     [SerializeField] Image fade;
     [SerializeField] Slider loadingBar;
     [SerializeField] float fadeTime;
@@ -48,10 +49,31 @@ public class SceneManager : Singleton<SceneManager>
         dialog.Unload();
     }
 
+    public void LoadNextStory(Transform loadTransform)
+    {
+        StartCoroutine(CoLoadNextStory(loadTransform));
+    }
+
+    IEnumerator CoLoadNextStory(Transform loadTransform)
+    {
+        fade.gameObject.SetActive(true);
+        yield return FadeOut(Color.black);
+
+        Manager.Game.Player.transform.position = loadTransform.position;
+        FindObjectOfType<BackgroundController>().gameObject.transform.position 
+            = new Vector2(loadTransform.position.x, loadTransform.position.y + 11f);
+
+        yield return new WaitForSeconds(1f);
+        yield return FadeIn(Color.black);
+        fade.gameObject.SetActive(false);
+    }
+
+
     IEnumerator LoadingRoutine(string scene)
     {
         fade.gameObject.SetActive(true);
-        yield return FadeOut();
+        yield return FadeOut(Color.white);
+        loadingText.SetActive(true);
 
         Manager.Pool.ClearPool();
         Manager.Sound.StopSFX();
@@ -76,15 +98,16 @@ public class SceneManager : Singleton<SceneManager>
         loadingBar.gameObject.SetActive(false);
         Time.timeScale = 1f;
 
-        yield return FadeIn();
+        loadingText.SetActive(false);
+        yield return FadeIn(Color.white);
         fade.gameObject.SetActive(false);
     }
 
-    IEnumerator FadeOut()
+    IEnumerator FadeOut(Color color)
     {
         float rate = 0;
-        Color fadeOutColor = new Color(fade.color.r, fade.color.g, fade.color.b, 1f);
-        Color fadeInColor = new Color(fade.color.r, fade.color.g, fade.color.b, 0f);
+        Color fadeOutColor = new Color(color.r, color.g, color.b, 1f);
+        Color fadeInColor = new Color(color.r, color.g, color.b, 0f);
 
         while (rate <= 1)
         {
@@ -94,11 +117,11 @@ public class SceneManager : Singleton<SceneManager>
         }
     }
 
-    IEnumerator FadeIn()
+    IEnumerator FadeIn(Color color)
     {
         float rate = 0;
-        Color fadeOutColor = new Color(fade.color.r, fade.color.g, fade.color.b, 1f);
-        Color fadeInColor = new Color(fade.color.r, fade.color.g, fade.color.b, 0f);
+        Color fadeOutColor = new Color(color.r, color.g, color.b, 1f);
+        Color fadeInColor = new Color(color.r, color.g, color.b, 0f);
 
         while (rate <= 1)
         {

@@ -10,6 +10,7 @@ public class TalkPoint : MonoBehaviour
         if(collision.tag.Equals("Player"))
         {
             Manager.Scene.StoryLoad(id);
+            gameObject.SetActive(false);
         }
     }
 }

@@ -161,6 +161,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Door",
+            "id": "83cba72e-e066-4fd1-a46f-bb0fc8c5baf8",
+            "actions": [
+                {
+                    "name": "Enter",
+                    "type": "Button",
+                    "id": "0e0c3238-a0c1-41ce-8867-e374f8623b27",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1d3b4d79-1565-4eda-b312-4f9311285832",
+                    "path": "<Keyboard>/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Enter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
