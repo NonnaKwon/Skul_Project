@@ -5,10 +5,12 @@ public class StateMachine<T> where T : Enum
 {
     private Dictionary<T, BaseState<T>> stateDic = new Dictionary<T, BaseState<T>>();
     private BaseState<T> curState;
+    public T CurState;
 
     public void Start(T startState)
     {
         curState = stateDic[startState];
+        CurState = startState;
         curState.Enter();
     }
 
@@ -38,6 +40,7 @@ public class StateMachine<T> where T : Enum
     {
         curState.Exit();
         curState = stateDic[stateEnum];
+        CurState = stateEnum;
         curState.Enter();
     }
 }
@@ -45,7 +48,6 @@ public class StateMachine<T> where T : Enum
 public class BaseState<T> where T : Enum
 {
     private StateMachine<T> stateMachine;
-
     public void SetStateMachine(StateMachine<T> stateMachine)
     {
         this.stateMachine = stateMachine;

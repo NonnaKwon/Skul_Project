@@ -13,10 +13,21 @@ public class Define
         None
     }
 
-    public enum GameSceneState
+    public enum PlayerState
     {
-        TutorialMap01,
-        TutorialMap02
+        Idle,
+        Damaged,
+        Interact,
+        Die,
+    }
+
+    public enum MonsterState
+    {
+        Idle,
+        Trace,
+        Damaged,
+        Attack,
+        Die
     }
 
 

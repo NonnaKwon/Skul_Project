@@ -1,30 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AttackPoint : MonoBehaviour
 {
     [SerializeField] LayerMask _mask;
     [SerializeField] float _attackRange = 1;
+    [SerializeField] float _effectTime;
 
-
+    PooledObject _effectPrefab;
     IAttackable _fightController;
-    Collider2D[] colliders = new Collider2D[30];
+    Collider2D[] _colliders = new Collider2D[30];
 
     private void Start()
     {
         _fightController = GetComponentInParent<IAttackable>();
+        _effectPrefab = Resources.Load("Prefabs/Effects/AttackEffect").GetComponent<PooledObject>();
     }
     public void Attack()
     {
-        int size = Physics2D.OverlapCircleNonAlloc(transform.position, _attackRange, colliders,_mask);
+        int size = Physics2D.OverlapCircleNonAlloc(transform.position, _attackRange, _colliders,_mask);
         Debug.Log(size);
         for (int i = 0; i < size; i++)
         {
-            IDamagable damagable = colliders[i].gameObject.GetComponent<IDamagable>();
+            IDamagable damagable = _colliders[i].gameObject.GetComponent<IDamagable>();
             if (damagable != null)
+            {
+                StartCoroutine(CoAttackTiming());
                 damagable.TakeDamage(_fightController.GetPower());
+            }
         }
+    }
+
+    IEnumerator CoAttackTiming()
+    {
+        Vector3 randomVec = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
+        yield return new WaitForSeconds(_effectTime);
+        Manager.Pool.GetPool(_effectPrefab, transform.position + randomVec, transform.rotation);
     }
 
     private void OnDrawGizmos()

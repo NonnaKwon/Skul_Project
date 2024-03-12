@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6035e6c0e0fb9fd4bb75650ef3f4f0e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fightController: {fileID: 546936735980161660}
   _mask:
     serializedVersion: 2
     m_Bits: 256
   _attackRange: 1
+  _effectTime: 0.1
 --- !u!1 &5948349000821771807
 GameObject:
   m_ObjectHideFlags: 0

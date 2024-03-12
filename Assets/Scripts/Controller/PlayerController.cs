@@ -2,29 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static Define;
 
 public class PlayerController : MonoBehaviour
 {
     //플레이어의 상태 : Idle, Attack, Interact, Die, 만약 공격중(점프공격아님)이면 움직일수없게
     public float XVelocity { get { return _rigid.velocity.x; } }
-    public bool Movable { get; set; } = true;
     [SerializeField] LayerMask _groundFind;
 
     private float _moveSpeed;
     private float _jumpPower;
     private float _dashPower;
     private int _jumpCount;
-    private int _inputMoveCount;
     private char _dashDir;
+    private int _inputMoveCount;
    
     Vector3 _moveDir;
-    Rigidbody2D _rigid;
+    [SerializeField] Rigidbody2D _rigid;
     Animator _animator;
     SpriteRenderer _renderer;
     Platform _onPlatform;
 
     PooledObject _jumpEffect;
     PooledObject _dashEffect;
+
+    private StateMachine<PlayerState> stateMachine;
+    public StateMachine<PlayerState> StateMachine { get { return stateMachine; } }
+
+    private void Awake()
+    {
+        stateMachine = new StateMachine<PlayerState>();
+        stateMachine.AddState(PlayerState.Idle, new IdleState(this));
+        stateMachine.AddState(PlayerState.Damaged, new DamagedState(this));
+        stateMachine.AddState(PlayerState.Interact, new InteractState(this));
+        stateMachine.AddState(PlayerState.Die, new DieState(this));
+        stateMachine.Start(PlayerState.Idle);
+    }
+
     private void Start()
     {
         _jumpCount = 0;
@@ -36,30 +50,12 @@ public class PlayerController : MonoBehaviour
         _dashPower = 20f;
         _jumpEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/JumpEffect");
         _dashEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/DashEffect");
+        stateMachine.Start(PlayerState.Idle);
     }
 
     private void Update()
     {
-        if (!Movable)
-            return;
-        Move();
-        if (_jumpCount > 0)
-            _animator.SetFloat("ySpeed", _rigid.velocity.y);
-    }
-
-    private void Move()
-    {
-        transform.Translate(_moveDir.x * _moveSpeed * Time.deltaTime, 0, 0);
-        if (_moveDir.x != 0)
-        {
-            _animator.SetBool("IsWalk", true);
-            if (_moveDir.x < 0)
-                _renderer.flipX = true;
-            else
-                _renderer.flipX = false;
-        }
-        else
-            _animator.SetBool("IsWalk", false);
+        stateMachine.Update();
     }
 
     private void Jump()
@@ -90,18 +86,20 @@ public class PlayerController : MonoBehaviour
 
     private void OnJump(InputValue value)
     {
-        if (!Movable)
-            return;
-        if (_jumpCount < Define.MAX_JUMP_COUNT)
-            Jump();
+        if (stateMachine.CurState == PlayerState.Idle)
+        {
+            if (_jumpCount < Define.MAX_JUMP_COUNT)
+                Jump();
+        }   
     }
 
     private void OnDown(InputValue value)
     {
-        if (!Movable)
-            return;
-        if (_onPlatform != null)
-            PlatformDown();
+        if (stateMachine.CurState == PlayerState.Idle)
+        {
+            if (_onPlatform != null)
+                PlatformDown();
+        }
     }
 
     private void OnMove(InputValue value)
@@ -112,16 +110,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnDashR(InputValue value)
     {
-        if (!Movable)
-            return;
-        StartCoroutine(CoDash('R'));
+        if (stateMachine.CurState == PlayerState.Idle)
+            StartCoroutine(CoDash('R'));
     }
 
     private void OnDashL(InputValue value)
     {
-        if (!Movable)
-            return;
-        StartCoroutine(CoDash('L'));
+        if (stateMachine.CurState == PlayerState.Idle)
+            StartCoroutine(CoDash('L'));
     }
 
     IEnumerator CoDash(char dir)
@@ -148,6 +144,87 @@ public class PlayerController : MonoBehaviour
             _jumpCount = 0;
             _onPlatform = collision.gameObject.GetComponent<Platform>();
             _animator.SetFloat("ySpeed", 0);
+        }
+    }
+
+    private class PlayerStateClass : BaseState<PlayerState>
+    {
+        protected PlayerController owner;
+        protected float _jumpPower => owner._jumpPower;
+        protected Rigidbody2D _rigid => owner._rigid;
+        protected Animator _animator => owner._animator;
+        protected Vector3 _moveDir => owner._moveDir;
+        protected float _moveSpeed => owner._moveSpeed;
+        protected SpriteRenderer _renderer => owner._renderer;
+
+        public PlayerStateClass(PlayerController owner)
+        {
+            this.owner = owner;
+        }
+    }
+
+    private class IdleState : PlayerStateClass
+    {
+        public IdleState(PlayerController owner) : base(owner) { }
+
+        public override void Update()
+        {
+            Move();
+            if (_jumpPower > 0)
+                _animator.SetFloat("ySpeed", _rigid.velocity.y);
+        }
+
+
+        private void Move()
+        {
+            owner.transform.Translate(_moveDir.x * _moveSpeed * Time.deltaTime, 0, 0);
+            if (_moveDir.x != 0)
+            {
+                _animator.SetBool("IsWalk", true);
+                if (_moveDir.x < 0)
+                    _renderer.flipX = true;
+                else
+                    _renderer.flipX = false;
+            }
+            else
+                _animator.SetBool("IsWalk", false);
+        }
+    }
+
+
+    private class DamagedState : PlayerStateClass
+    {
+        public DamagedState(PlayerController owner) : base(owner) { }
+
+        public override void Transition()
+        {
+
+        }
+    }
+
+    private class InteractState : PlayerStateClass
+    {
+        public InteractState(PlayerController owner) : base(owner) { }
+
+        public override void Enter()
+        {
+            owner._animator.SetTrigger("Interact");
+        }
+        public override void Transition()
+        {
+
+        }
+
+    }
+
+    
+    private class DieState : PlayerStateClass
+    {
+        public DieState(PlayerController owner) : base(owner) { }
+
+        public override void Transition()
+        {
+
         }
     }
 }

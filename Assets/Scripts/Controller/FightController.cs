@@ -12,8 +12,8 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
     Animator _animator;
 
     //플레이어면, 플레이어 컨트롤러에서 대가리바뀔때마다 (이름, 스킬, 점프파워) 얘도 바뀜
-    private int _maxHp;
-    private int _hp;
+    private float _maxHp;
+    private float _hp;
     private float _power;
     private float _defencePower;
 
@@ -32,10 +32,10 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
     public float GetPower() { 
         return _power; 
     } //어택포인트에 보냄
-                            
+
     public void TakeDamage(float damage)
     {
-                            
+        _hp -= damage;
     }
 
     public void Attack()
@@ -50,7 +50,9 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
     private void OnAttack(InputValue value)
     {
         if(_attackCount < _maxAttackCount)
+        {
             Attack();
+        }
     }
 
     private void OnMove(InputValue value)
