@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static Define;
@@ -14,6 +15,7 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
     private float _power;
     private float _defencePower;
     private float _moveSpeed;
+    private float _damagedPower;
     private int _maxAttackCount;
     private float _traceRange;
 
@@ -26,6 +28,7 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
     Rigidbody2D _rigid;
     SpriteRenderer _renderer;
     Vector3 _attackPointPosition;
+    PooledObject _damageEffect;
 
     private StateMachine<MonsterState> stateMachine;
     public StateMachine<MonsterState> StateMachine { get { return stateMachine; } }
@@ -44,6 +47,7 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
 
     private void Start()
     {
+        _damagedPower = 2;
         _maxAttackCount = 1;
         _attackCount = 0;
         _maxHp = 20;
@@ -57,6 +61,8 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
         _renderer = GetComponentInChildren<SpriteRenderer>();
         _target = FindObjectOfType<PlayerController>().gameObject;
         _attackPointPosition = _baseAttackPoint.gameObject.GetComponent<Transform>().localPosition;
+        _damageEffect = Resources.Load("Prefabs/Effects/AttackEffect").GetComponent<PooledObject>();
+        stateMachine.Start(MonsterState.Idle);
     }
 
     private void Update()
@@ -118,11 +124,23 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
     {
         Debug.Log("데미지를 받았다!");
         _hp -= damage;
-        if (_renderer.flipX) //왼쪽으로 돌아있으면
-            _rigid.AddForce(new Vector2(1,1));
-        else
-            _rigid.AddForce(new Vector2(-1,1));
+        StartCoroutine(CoTakeDamage());
+    }
 
+
+    IEnumerator CoTakeDamage()
+    {
+        stateMachine.ChangeState(MonsterState.Damaged);
+        Vector3 randomVec = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
+        yield return new WaitForSeconds(0.1f);
+        Manager.Pool.GetPool(_damageEffect, transform.position + randomVec, transform.rotation);
+        
+        if (_renderer.flipX) //왼쪽으로 돌아있으면
+            _rigid.velocity = new Vector2(_damagedPower, 0);
+        else
+            _rigid.velocity = new Vector2(-_damagedPower, 1);
+        yield return new WaitForSeconds(1f);
+        stateMachine.ChangeState(MonsterState.Trace);
     }
 
     private class MonsterStateClass : BaseState<MonsterState>
@@ -152,7 +170,6 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
         }
 
     }
-
 
     private class TraceState : MonsterStateClass
     {
@@ -189,6 +206,10 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
     {
         public DamagedState(MonsterController owner) : base(owner) { }
 
+        public override void Enter()
+        {
+            owner._animator.Play("Damaged");
+        }
         public override void Update()
         {
 

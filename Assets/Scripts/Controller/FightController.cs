@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static Define;
 
 public class FightController : MonoBehaviour,IDamagable,IAttackable
 {
@@ -20,13 +22,19 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
     private int _attackCount;
     private Vector3 _attackPointPosition;
 
+    PlayerController _controller;
+    PooledObject _damageEffect;
+
     private void Start()
     {
+
         _attackCount = 0;
         _maxHp = 100;
         _hp = _maxHp;
         _animator = GetComponent<Animator>();
         _attackPointPosition = _baseAttackPoint.gameObject.GetComponent<Transform>().localPosition;
+        _controller = GetComponent<PlayerController>();
+        _damageEffect = Resources.Load("Prefabs/Effects/AttackEffect").GetComponent<PooledObject>();
     }
 
     public float GetPower() { 
@@ -35,9 +43,21 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
 
     public void TakeDamage(float damage)
     {
+        Debug.Log("Player : 데미지를 받았다!");
         _hp -= damage;
+        StartCoroutine(CoTakeDamage());
     }
 
+
+    IEnumerator CoTakeDamage()
+    {
+        _controller.StateMachine.ChangeState(PlayerState.Damaged);
+        yield return new WaitForSeconds(0.1f);
+        Vector3 randomVec = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
+        Manager.Pool.GetPool(_damageEffect, transform.position + randomVec, transform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        _controller.StateMachine.ChangeState(PlayerState.Idle);
+    }
     public void Attack()
     {
         _attackCount++;

@@ -9,14 +9,12 @@ public class AttackPoint : MonoBehaviour
     [SerializeField] float _attackRange = 1;
     [SerializeField] float _effectTime;
 
-    PooledObject _effectPrefab;
     IAttackable _fightController;
     Collider2D[] _colliders = new Collider2D[30];
 
     private void Start()
     {
         _fightController = GetComponentInParent<IAttackable>();
-        _effectPrefab = Resources.Load("Prefabs/Effects/AttackEffect").GetComponent<PooledObject>();
     }
     public void Attack()
     {
@@ -27,18 +25,11 @@ public class AttackPoint : MonoBehaviour
             IDamagable damagable = _colliders[i].gameObject.GetComponent<IDamagable>();
             if (damagable != null)
             {
-                StartCoroutine(CoAttackTiming());
                 damagable.TakeDamage(_fightController.GetPower());
             }
         }
     }
 
-    IEnumerator CoAttackTiming()
-    {
-        Vector3 randomVec = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
-        yield return new WaitForSeconds(_effectTime);
-        Manager.Pool.GetPool(_effectPrefab, transform.position + randomVec, transform.rotation);
-    }
 
     private void OnDrawGizmos()
     {

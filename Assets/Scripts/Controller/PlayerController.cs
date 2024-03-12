@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static Define;
@@ -16,7 +17,9 @@ public class PlayerController : MonoBehaviour
     private int _jumpCount;
     private char _dashDir;
     private int _inputMoveCount;
-   
+    private float _damagedPower;
+
+
     Vector3 _moveDir;
     [SerializeField] Rigidbody2D _rigid;
     Animator _animator;
@@ -41,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        _damagedPower = 3;
         _jumpCount = 0;
         _rigid = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
@@ -196,6 +200,14 @@ public class PlayerController : MonoBehaviour
     {
         public DamagedState(PlayerController owner) : base(owner) { }
 
+        public override void Enter()
+        {
+            owner._animator.Play("Damaged");
+            if (_renderer.flipX) //왼쪽으로 돌아있으면
+                _rigid.velocity = new Vector2(owner._damagedPower, 0);
+            else
+                _rigid.velocity = new Vector2(-owner._damagedPower, 1);
+        }
         public override void Transition()
         {
 
