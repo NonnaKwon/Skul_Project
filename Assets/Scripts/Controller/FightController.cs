@@ -4,7 +4,7 @@ using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class FightController : MonoBehaviour,IDamagable
+public class FightController : MonoBehaviour,IDamagable,IAttackable
 {
     [SerializeField] AttackPoint _baseAttackPoint;
     [SerializeField] int _maxAttackCount;
@@ -19,7 +19,6 @@ public class FightController : MonoBehaviour,IDamagable
 
     private int _attackCount;
     private Vector3 _attackPointPosition;
-    public float Power { get { return _power; } } //어택포인트에 보냄
 
     private void Start()
     {
@@ -30,13 +29,16 @@ public class FightController : MonoBehaviour,IDamagable
         _attackPointPosition = _baseAttackPoint.gameObject.GetComponent<Transform>().localPosition;
     }
 
-
+    public float GetPower() { 
+        return _power; 
+    } //어택포인트에 보냄
+                            
     public void TakeDamage(float damage)
     {
-
+                            
     }
 
-    private void Attack()
+    public void Attack()
     {
         _attackCount++;
         if (_attackCount > _maxAttackCount)

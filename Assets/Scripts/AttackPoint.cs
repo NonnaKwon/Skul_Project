@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class AttackPoint : MonoBehaviour
 {
-    [SerializeField] FightController _fightController;
     [SerializeField] LayerMask _mask;
     [SerializeField] float _attackRange = 1;
 
 
+    IAttackable _fightController;
     Collider2D[] colliders = new Collider2D[30];
+
+    private void Start()
+    {
+        _fightController = GetComponentInParent<IAttackable>();
+    }
     public void Attack()
     {
         int size = Physics2D.OverlapCircleNonAlloc(transform.position, _attackRange, colliders,_mask);
@@ -18,7 +23,7 @@ public class AttackPoint : MonoBehaviour
         {
             IDamagable damagable = colliders[i].gameObject.GetComponent<IDamagable>();
             if (damagable != null)
-                damagable.TakeDamage(_fightController.Power);
+                damagable.TakeDamage(_fightController.GetPower());
         }
     }
 

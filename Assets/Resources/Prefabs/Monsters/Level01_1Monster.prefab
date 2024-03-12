@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1279192013521741335}
   - component: {fileID: 1140158128184235635}
   - component: {fileID: 5743599344514580627}
-  - component: {fileID: 6882401265725745009}
   m_Layer: 8
   m_Name: Level01_1Monster
   m_TagString: Untagged
@@ -133,20 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bf64211269f1d4a94663710b60c1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6882401265725745009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795246276727012208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 144121fefe17b4f4abc976cae09338ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   _baseAttackPoint: {fileID: 6807267185472781227}
-  _maxAttackCount: 1
 --- !u!1 &5122684981480447425
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6035e6c0e0fb9fd4bb75650ef3f4f0e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fightController: {fileID: 6882401265725745009}
   _mask:
     serializedVersion: 2
     m_Bits: 128
@@ -266,8 +251,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -479397279
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 01413119400e9244eba6a340f6fcb128, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
