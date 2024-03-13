@@ -11,6 +11,8 @@ public class SceneManager : Singleton<SceneManager>
     [SerializeField] Slider loadingBar;
     [SerializeField] float fadeTime;
     [SerializeField] UI_Story dialog;
+    [SerializeField] Transform regenPos;
+    
 
     private BaseScene curScene;
 
@@ -51,7 +53,15 @@ public class SceneManager : Singleton<SceneManager>
 
     public void LoadNextStory(Transform loadTransform)
     {
+        //regenPos = loadTransform;
         StartCoroutine(CoLoadNextStory(loadTransform));
+    }
+
+    public void RegenLoad()
+    {
+        Manager.Game.Player.PlayerInit();
+        LoadNextStory(regenPos);
+        
     }
 
     IEnumerator CoLoadNextStory(Transform loadTransform)
@@ -67,6 +77,7 @@ public class SceneManager : Singleton<SceneManager>
         yield return FadeIn(Color.black);
         fade.gameObject.SetActive(false);
     }
+
 
 
     IEnumerator LoadingRoutine(string scene)

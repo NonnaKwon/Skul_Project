@@ -45,6 +45,22 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        PlayerInit();
+        _rigid = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        _renderer = GetComponentInChildren<SpriteRenderer>();
+        _jumpEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/JumpEffect");
+        _dashEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/DashEffect");
+    }
+
+    private void Update()
+    {
+        stateMachine.Update();
+    }
+
+
+    public void PlayerInit()
+    {
         _damagedPower = 3;
         _jumpCount = 0;
         _rigid = GetComponent<Rigidbody2D>();
@@ -53,14 +69,8 @@ public class PlayerController : MonoBehaviour
         _moveSpeed = 8.4f;
         _jumpPower = 13f;
         _dashPower = 20f;
-        _jumpEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/JumpEffect");
-        _dashEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/DashEffect");
-        stateMachine.Start(PlayerState.Idle);
-    }
-
-    private void Update()
-    {
-        stateMachine.Update();
+        GetComponent<FightController>().PlayerInit();
+        stateMachine.ChangeState(PlayerState.Idle);
     }
 
     private void Jump()
@@ -233,9 +243,23 @@ public class PlayerController : MonoBehaviour
     {
         public DieState(PlayerController owner) : base(owner) { }
 
+        public override void Enter()
+        {
+            Debug.Log("Player : Die");
+            _animator.Play("Die");
+            UI_GameOver gameoverUI = Resources.Load<UI_GameOver>("Prefabs/UIs/Popup/UI_GameOver");
+            Debug.Log(gameoverUI);
+            Manager.UI.ShowPopUpUI(gameoverUI,false);
+        }
+
         public override void Transition()
         {
 
+        }
+
+        public override void Exit()
+        {
+            Manager.UI.ClearPopUpUI();
         }
     }
 }

@@ -32,14 +32,14 @@ public class UI_GameScene : UI_Scene
 
     private void Start()
     {
-        playerFightData = Manager.Game.Player.gameObject.GetComponent<FightController>();
-        InitHPBar();
-        
+
     }
 
     public void InitHPBar()
     {
+        playerFightData = Manager.Game.Player.gameObject.GetComponent<FightController>();        
         Slider slider = GetObject((int)GameObjects.HP).GetComponent<Slider>();
+        Debug.Log(playerFightData);
         slider.maxValue = playerFightData.MaxHp;
         slider.value = playerFightData.MaxHp;
 

@@ -32,12 +32,28 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
 
     private void Start()
     {
-        _attackCount = 0;
+        _maxHp = 300;
         _hp = _maxHp;
         _animator = GetComponent<Animator>();
         _attackPointPosition = _baseAttackPoint.gameObject.GetComponent<Transform>().localPosition;
         _controller = GetComponent<PlayerController>();
         _damageEffect = Resources.Load("Prefabs/Effects/AttackEffect").GetComponent<PooledObject>();
+    }
+
+    private void Update()
+    {
+        if (_hp <= 0 && Manager.Game.Player.StateMachine.CurState != PlayerState.Die)
+            Manager.Game.Player.StateMachine.ChangeState(PlayerState.Die);
+    }
+
+    public void PlayerInit()
+    {
+        _maxHp = 300;
+        _power = 3;
+        _attackCount = 0;
+        _hp = _maxHp;
+        _defencePower = 1;
+        _connectUI.InitHPBar();
     }
 
     public float GetPower() { 

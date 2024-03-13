@@ -13,6 +13,11 @@ public class Define
         None
     }
 
+    public enum CurMap
+    {
+
+    }
+
     public enum PlayerState
     {
         Idle,

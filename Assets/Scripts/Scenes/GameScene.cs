@@ -13,6 +13,7 @@ public class GameScene : BaseScene
         PooledObject doubleJumpEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/JumpEffect");
         PooledObject dashEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/DashEffect");
         PooledObject attackEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/AttackEffect");
+
         Manager.Pool.CreatePool(doubleJumpEffect, 3, 3);
         Manager.Pool.CreatePool(dashEffect, 5, 5);
         Manager.Pool.CreatePool(attackEffect, 10, 10);

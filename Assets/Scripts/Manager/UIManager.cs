@@ -30,7 +30,7 @@ public class UIManager : Singleton<UIManager>
         Instantiate(eventSystem);
     }
 
-    public T ShowPopUpUI<T>(T popUpUI) where T : UI_Popup
+    public T ShowPopUpUI<T>(T popUpUI,bool timeScale = true) where T : UI_Popup
     {
         if (_popupStack.Count > 0)
         {
@@ -41,10 +41,12 @@ public class UIManager : Singleton<UIManager>
         {
             popUpBlocker.gameObject.SetActive(true);
             prevTimeScale = Time.timeScale;
-            Time.timeScale = 0f;
+            if(timeScale)
+                Time.timeScale = 0f;
         }
 
-        T ui = Instantiate(popUpUI, popUpCanvas.transform);
+        T ui = Instantiate(popUpUI);
+        ui.transform.SetParent(popUpCanvas.transform, false);
         _popupStack.Push(ui);
         return ui;
     }
@@ -90,16 +92,20 @@ public class UIManager : Singleton<UIManager>
 
 
 
-    public T ShowInGameUI<T>(T inGameUI) where T : UI_Scene
+
+
+    public T ShowInGameUI<T>(string name) where T : UI_Scene
     {
         if (curInGameUI != null)
         {
             Destroy(curInGameUI.gameObject);
         }
 
+        T inGameUI = Manager.Resource.Load<T>($"Prefabs/UIs/Scene/{name}");
         T ui = Instantiate(inGameUI, inGameCanvas.transform);
         curInGameUI = ui;
         inGameBlocker.gameObject.SetActive(true);
+
         return ui;
     }
 

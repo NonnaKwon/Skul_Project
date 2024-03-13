@@ -38,7 +38,8 @@ public class StateMachine<T> where T : Enum
 
     public void ChangeState(T stateEnum)
     {
-        curState.Exit();
+        if(curState != null)
+            curState.Exit();
         curState = stateDic[stateEnum];
         CurState = stateEnum;
         curState.Enter();

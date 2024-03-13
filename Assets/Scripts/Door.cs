@@ -13,7 +13,6 @@ public class Door : MonoBehaviour
 
     private void Start()
     {
-        monsterList = FindObjectsByType<MonsterController>(FindObjectsSortMode.None).ToList();
         if (monsterList.Count == 0)
             _isActive = true;
     }

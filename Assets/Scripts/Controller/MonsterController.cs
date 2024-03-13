@@ -98,7 +98,7 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
 
     private void Die()
     {
-
+        StartCoroutine(CoDie());
     }
 
     public float GetPower() 
@@ -156,7 +156,6 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
 
     IEnumerator CoDie()
     {
-        //죽는 애니메이션
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
@@ -247,7 +246,8 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
 
         public override void Update()
         {
-            owner.Attack();
+            if (Manager.Game.Player.StateMachine.CurState != PlayerState.Die)
+                owner.Attack();
         }
 
         public override void Transition()
@@ -258,6 +258,8 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
             }
             if (owner._hp <= 0)
                 ChangeState(MonsterState.Die);
+            if (Manager.Game.Player.StateMachine.CurState == PlayerState.Die)
+                ChangeState(MonsterState.Trace);
         }
     }
 
@@ -268,6 +270,7 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
 
         public override void Enter()
         {
+            owner._animator.Play("Die");
             owner.Die();
         }
 

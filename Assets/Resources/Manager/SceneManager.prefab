@@ -1362,6 +1362,7 @@ MonoBehaviour:
   loadingBar: {fileID: 4887027253395517611}
   fadeTime: 0.5
   dialog: {fileID: 8384350542479019397}
+  regenPos: {fileID: 837257679128095355, guid: b0ee2eed0577ca54587a86c3c5e58706, type: 3}
 --- !u!1 &8769500501819068978
 GameObject:
   m_ObjectHideFlags: 0
