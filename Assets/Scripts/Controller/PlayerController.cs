@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
 
     Vector3 _moveDir;
-    [SerializeField] Rigidbody2D _rigid;
+    Rigidbody2D _rigid;
     Animator _animator;
     SpriteRenderer _renderer;
     Platform _onPlatform;
@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        Manager.Game.Player = this;
         stateMachine = new StateMachine<PlayerState>();
         stateMachine.AddState(PlayerState.Idle, new IdleState(this));
         stateMachine.AddState(PlayerState.Damaged, new DamagedState(this));
@@ -81,10 +82,8 @@ public class PlayerController : MonoBehaviour
     private void Dash()
     {
         _animator.Play("Dash");
-        Vector3 insPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        Vector3 insPosition = transform.position;
         Manager.Pool.GetPool(_dashEffect, insPosition, transform.rotation);
-
-        _rigid.AddForce(Vector2.right * _moveDir * _dashPower,ForceMode2D.Impulse);
         _rigid.velocity = new Vector2(_moveDir.x * _dashPower, _rigid.velocity.y);
     }
 
@@ -133,7 +132,7 @@ public class PlayerController : MonoBehaviour
             Dash();
         _dashDir = dir;
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
 
         _inputMoveCount = 0;
         _dashDir = ' ';

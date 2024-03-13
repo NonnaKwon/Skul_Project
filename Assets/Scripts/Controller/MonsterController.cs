@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using static Define;
 
 public class MonsterController : MonoBehaviour, IDamagable, IAttackable
 {
     [SerializeField] AttackPoint _baseAttackPoint;
+    [SerializeField] Slider _hpSlider;
 
     //몬스터 스트립터블 데이터
     private float _maxHp;
@@ -47,10 +49,11 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
 
     private void Start()
     {
+        _power = 3;
         _damagedPower = 2;
         _maxAttackCount = 1;
         _attackCount = 0;
-        _maxHp = 20;
+        _maxHp = 12;
         _traceRange = 10;
         _attackRange = 3;
         _hp = _maxHp;
@@ -62,6 +65,8 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
         _target = FindObjectOfType<PlayerController>().gameObject;
         _attackPointPosition = _baseAttackPoint.gameObject.GetComponent<Transform>().localPosition;
         _damageEffect = Resources.Load("Prefabs/Effects/AttackEffect").GetComponent<PooledObject>();
+        _hpSlider.maxValue = _maxHp;
+        _hpSlider.value = _maxHp;
         stateMachine.Start(MonsterState.Idle);
     }
 
@@ -89,6 +94,11 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
         _attackPointPosition.x = movePos;
         _baseAttackPoint.transform.localPosition = new Vector3(movePos, _attackPointPosition.y, _attackPointPosition.z);
         transform.Translate(new Vector3(targetRotation.x * _moveSpeed * Time.deltaTime, 0, 0), Space.World);
+    }
+
+    private void Die()
+    {
+
     }
 
     public float GetPower() 
@@ -124,10 +134,11 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
     {
         Debug.Log("데미지를 받았다!");
         _hp -= damage;
+        _hpSlider.value -= damage;
         StartCoroutine(CoTakeDamage());
     }
 
-
+    
     IEnumerator CoTakeDamage()
     {
         stateMachine.ChangeState(MonsterState.Damaged);
@@ -141,6 +152,13 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
             _rigid.velocity = new Vector2(-_damagedPower, 1);
         yield return new WaitForSeconds(1f);
         stateMachine.ChangeState(MonsterState.Trace);
+    }
+
+    IEnumerator CoDie()
+    {
+        //죽는 애니메이션
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 
     private class MonsterStateClass : BaseState<MonsterState>
@@ -167,6 +185,9 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
             {
                 ChangeState(MonsterState.Trace);
             }
+
+            if(owner._hp <= 0)
+                ChangeState(MonsterState.Die);
         }
 
     }
@@ -196,6 +217,8 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
             {
                 ChangeState(MonsterState.Attack);
             }
+            if (owner._hp <= 0)
+                ChangeState(MonsterState.Die);
         }
 
     }
@@ -212,7 +235,8 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
         }
         public override void Update()
         {
-
+            if (owner._hp <= 0)
+                ChangeState(MonsterState.Die);
         }
 
     }
@@ -232,13 +256,21 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
             {
                 ChangeState(MonsterState.Trace);
             }
+            if (owner._hp <= 0)
+                ChangeState(MonsterState.Die);
         }
     }
 
-
+    
     private class DieState : MonsterStateClass
     {
         public DieState(MonsterController owner) : base(owner) { }
+
+        public override void Enter()
+        {
+            owner.Die();
+        }
+
 
         public override void Update()
         {

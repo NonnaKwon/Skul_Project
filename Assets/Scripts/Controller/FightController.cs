@@ -4,19 +4,24 @@ using Unity.VisualScripting;
 using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using static Define;
 
 public class FightController : MonoBehaviour,IDamagable,IAttackable
 {
     [SerializeField] AttackPoint _baseAttackPoint;
     [SerializeField] int _maxAttackCount;
+    [SerializeField] UI_GameScene _connectUI;
+
+    public float MaxHp { get { return _maxHp; } }
+    public float Hp { get { return _hp; } }
 
     Animator _animator;
 
     //플레이어면, 플레이어 컨트롤러에서 대가리바뀔때마다 (이름, 스킬, 점프파워) 얘도 바뀜
-    private float _maxHp;
+    private float _maxHp = 300;
     private float _hp;
-    private float _power;
+    private float _power = 3;
     private float _defencePower;
 
     private int _attackCount;
@@ -27,9 +32,7 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
 
     private void Start()
     {
-
         _attackCount = 0;
-        _maxHp = 100;
         _hp = _maxHp;
         _animator = GetComponent<Animator>();
         _attackPointPosition = _baseAttackPoint.gameObject.GetComponent<Transform>().localPosition;
@@ -45,6 +48,7 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
     {
         Debug.Log("Player : 데미지를 받았다!");
         _hp -= damage;
+        _connectUI.DecreaseHP(damage);
         StartCoroutine(CoTakeDamage());
     }
 

@@ -22,5 +22,4 @@ public class UI_TitleScene : UI_Scene
     {
         Manager.Scene.LoadScene(Define.Scene.GameScene);
     }
-
 }

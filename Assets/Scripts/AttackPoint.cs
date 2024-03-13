@@ -16,6 +16,7 @@ public class AttackPoint : MonoBehaviour
     {
         _fightController = GetComponentInParent<IAttackable>();
     }
+
     public void Attack()
     {
         int size = Physics2D.OverlapCircleNonAlloc(transform.position, _attackRange, _colliders,_mask);
