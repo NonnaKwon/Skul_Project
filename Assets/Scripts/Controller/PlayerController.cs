@@ -11,20 +11,21 @@ public class PlayerController : MonoBehaviour
     public float XVelocity { get { return _rigid.velocity.x; } }
     [SerializeField] LayerMask _groundFind;
 
+    public Head CurrentHead;
+
     private float _moveSpeed;
     private float _jumpPower;
     private float _dashPower;
-    private int _jumpCount;
     private char _dashDir;
     private int _inputMoveCount;
-    private float _damagedPower;
-
+    private int _stackJumpCount;
 
     Vector3 _moveDir;
     Rigidbody2D _rigid;
     Animator _animator;
-    SpriteRenderer _renderer;
     Platform _onPlatform;
+    Collider2D _collider;
+    SpriteRenderer _renderer;
 
     PooledObject _jumpEffect;
     PooledObject _dashEffect;
@@ -34,10 +35,10 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        Manager.Game.Player = this;
+        CurrentHead = Util.GetOrAddComponent<Skul>(gameObject);
         stateMachine = new StateMachine<PlayerState>();
         stateMachine.AddState(PlayerState.Idle, new IdleState(this));
-        stateMachine.AddState(PlayerState.Damaged, new DamagedState(this));
+        //stateMachine.AddState(PlayerState.Damaged, new DamagedState(this));
         stateMachine.AddState(PlayerState.Interact, new InteractState(this));
         stateMachine.AddState(PlayerState.Die, new DieState(this));
         stateMachine.Start(PlayerState.Idle);
@@ -48,9 +49,10 @@ public class PlayerController : MonoBehaviour
         PlayerInit();
         _rigid = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _renderer = GetComponentInChildren<SpriteRenderer>();
+        _collider = GetComponent<Collider2D>();
         _jumpEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/JumpEffect");
         _dashEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/DashEffect");
+        _renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
@@ -61,11 +63,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerInit()
     {
-        _damagedPower = 3;
-        _jumpCount = 0;
-        _rigid = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
-        _renderer = GetComponentInChildren<SpriteRenderer>();
+        _stackJumpCount = 0;
         _moveSpeed = 8.4f;
         _jumpPower = 13f;
         _dashPower = 20f;
@@ -73,10 +71,15 @@ public class PlayerController : MonoBehaviour
         stateMachine.ChangeState(PlayerState.Idle);
     }
 
+    public void ChangeHead()
+    {
+
+    }
+
     private void Jump()
     {
-        _jumpCount++;
-        if (_jumpCount == 2)
+        _stackJumpCount++;
+        if (_stackJumpCount >= CurrentHead.Data.jumpCount)
         {
             Vector3 insPosition = new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z);
             Manager.Pool.GetPool(_jumpEffect, insPosition, transform.rotation);
@@ -91,6 +94,7 @@ public class PlayerController : MonoBehaviour
 
     private void Dash()
     {
+        _collider.isTrigger = true;
         _animator.Play("Dash");
         Vector3 insPosition = transform.position;
         Manager.Pool.GetPool(_dashEffect, insPosition, transform.rotation);
@@ -101,7 +105,7 @@ public class PlayerController : MonoBehaviour
     {
         if (stateMachine.CurState == PlayerState.Idle)
         {
-            if (_jumpCount < Define.MAX_JUMP_COUNT)
+            if (_stackJumpCount < CurrentHead.Data.jumpCount)
                 Jump();
         }   
     }
@@ -141,6 +145,7 @@ public class PlayerController : MonoBehaviour
         if (_dashDir == dir && _inputMoveCount == 2)
             Dash();
         _dashDir = dir;
+        _collider.isTrigger = false;
 
         yield return new WaitForSeconds(0.2f);
 
@@ -154,7 +159,17 @@ public class PlayerController : MonoBehaviour
     {
         if (_groundFind.Contain(collision.gameObject.layer))
         {
-            _jumpCount = 0;
+            _stackJumpCount = 0;
+            _onPlatform = collision.gameObject.GetComponent<Platform>();
+            _animator.SetFloat("ySpeed", 0);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (_groundFind.Contain(collision.gameObject.layer))
+        {
+            _stackJumpCount = 0;
             _onPlatform = collision.gameObject.GetComponent<Platform>();
             _animator.SetFloat("ySpeed", 0);
         }
@@ -169,7 +184,6 @@ public class PlayerController : MonoBehaviour
         protected Vector3 _moveDir => owner._moveDir;
         protected float _moveSpeed => owner._moveSpeed;
         protected SpriteRenderer _renderer => owner._renderer;
-
         public PlayerStateClass(PlayerController owner)
         {
             this.owner = owner;
@@ -205,23 +219,23 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private class DamagedState : PlayerStateClass
-    {
-        public DamagedState(PlayerController owner) : base(owner) { }
+    //private class DamagedState : PlayerStateClass
+    //{
+    //    public DamagedState(PlayerController owner) : base(owner) { }
 
-        public override void Enter()
-        {
-            owner._animator.Play("Damaged");
-            if (_renderer.flipX) //왼쪽으로 돌아있으면
-                _rigid.velocity = new Vector2(owner._damagedPower, 0);
-            else
-                _rigid.velocity = new Vector2(-owner._damagedPower, 1);
-        }
-        public override void Transition()
-        {
+    //    public override void Enter()
+    //    {
+    //        owner._animator.Play("Damaged");
+    //        if (_renderer.flipX) //왼쪽으로 돌아있으면
+    //            _rigid.velocity = new Vector2(DAMAGED_POWER, 0);
+    //        else
+    //            _rigid.velocity = new Vector2(-DAMAGED_POWER, 1);
+    //    }
+    //    public override void Transition()
+    //    {
 
-        }
-    }
+    //    }
+    //}
 
     private class InteractState : PlayerStateClass
     {

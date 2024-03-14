@@ -15,6 +15,7 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
     [SerializeField] private float _maxHp = 12;
     [SerializeField] private float _power = 3;
     [SerializeField] private int _maxAttackCount = 1;
+    [SerializeField] private float _attackTime = 2;
 
     //몬스터 스트립터블 데이터
     private float _hp;
@@ -237,12 +238,23 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
 
     private class AttackState : MonsterStateClass
     {
+        private float curAttackTime;
         public AttackState(MonsterController owner) : base(owner) { }
 
+        public override void Enter()
+        {
+            curAttackTime = 1.5f;
+        }
         public override void Update()
         {
+            curAttackTime += Time.deltaTime;
+            if (curAttackTime < owner._attackTime)
+                return;
             if (Manager.Game.Player.StateMachine.CurState != PlayerState.Die)
+            {
+                curAttackTime = 0;
                 owner.Attack();
+            }
         }
 
         public override void Transition()

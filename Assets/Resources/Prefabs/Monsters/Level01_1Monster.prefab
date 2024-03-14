@@ -190,7 +190,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.064435184, y: 1.5679228}
@@ -237,6 +237,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseAttackPoint: {fileID: 6807267185472781227}
   _hpSlider: {fileID: 6971142323079574868}
+  _maxHp: 12
+  _power: 3
+  _maxAttackCount: 1
+  _attackTime: 2
 --- !u!1 &5122684981480447425
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6339226684140914259}
   - component: {fileID: 6807267185472781227}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: HitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

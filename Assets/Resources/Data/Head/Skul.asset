@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e97ae5323af62b489998d46ce7aa97b, type: 3}
+  m_Name: Skul
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: d05343776c9e5564ea46d40ef1c2af8e, type: 3}
+  animator: {fileID: 9100000, guid: 938b6942c78a43b4c978b33a9282188b, type: 2}
+  headName: Skul
+  jumpCount: 2
+  maxHp: 300
+  power: 3
+  defencePower: 1
+  attackCount: 2

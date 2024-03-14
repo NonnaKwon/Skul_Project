@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 847620608880416762}
   - component: {fileID: 5711807981715559629}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: HitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseAttackPoint: {fileID: 5711807981715559629}
-  _maxAttackCount: 2
+  _connectUI: {fileID: 0}
 --- !u!114 &4365166844586879145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +231,7 @@ MonoBehaviour:
   _groundFind:
     serializedVersion: 2
     m_Bits: 72
+  CurrentHead: {fileID: 0}
 --- !u!247 &3143795907916302554
 ConstantForce2D:
   m_ObjectHideFlags: 0

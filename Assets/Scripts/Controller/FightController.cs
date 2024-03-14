@@ -10,34 +10,34 @@ using static Define;
 public class FightController : MonoBehaviour,IDamagable,IAttackable
 {
     [SerializeField] AttackPoint _baseAttackPoint;
-    [SerializeField] int _maxAttackCount;
     [SerializeField] UI_GameScene _connectUI;
 
-    public float MaxHp { get { return _maxHp; } }
+    public float MaxHp { get { return _currentHead.Data.maxHp; } }
     public float Hp { get { return _hp; } }
 
-    Animator _animator;
-
-    //플레이어면, 플레이어 컨트롤러에서 대가리바뀔때마다 (이름, 스킬, 점프파워) 얘도 바뀜
-    private float _maxHp = 300;
     private float _hp;
-    private float _power = 3;
-    private float _defencePower;
-
-    private int _attackCount;
     private Vector3 _attackPointPosition;
-
     PlayerController _controller;
     PooledObject _damageEffect;
+    Animator _animator;
+    Head _currentHead;
+    Rigidbody2D _rigid;
+    SpriteRenderer _renderer;
+
+    int _attackCount;
 
     private void Start()
     {
-        _maxHp = 300;
-        _hp = _maxHp;
         _animator = GetComponent<Animator>();
         _attackPointPosition = _baseAttackPoint.gameObject.GetComponent<Transform>().localPosition;
-        _controller = GetComponent<PlayerController>();
         _damageEffect = Resources.Load("Prefabs/Effects/AttackEffect").GetComponent<PooledObject>();
+        _controller = GetComponent<PlayerController>();
+        _renderer = GetComponentInChildren<SpriteRenderer>();
+        _rigid = GetComponent<Rigidbody2D>();
+
+        _currentHead = _controller.CurrentHead;
+        _hp = _currentHead.Data.maxHp;
+        PlayerInit();
     }
 
     private void Update()
@@ -48,16 +48,16 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
 
     public void PlayerInit()
     {
-        _maxHp = 300;
-        _power = 3;
         _attackCount = 0;
-        _hp = _maxHp;
-        _defencePower = 1;
-        _connectUI.InitHPBar();
+        if(_currentHead != null)
+        {
+            _hp = _currentHead.Data.maxHp;
+            _connectUI.InitHPBar();
+        }
     }
 
     public float GetPower() { 
-        return _power; 
+        return _currentHead.Data.power; 
     } //어택포인트에 보냄
 
     public void TakeDamage(float damage)
@@ -71,28 +71,34 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
 
     IEnumerator CoTakeDamage()
     {
-        _controller.StateMachine.ChangeState(PlayerState.Damaged);
+        _animator.Play("Damaged");
+        if (_renderer.flipX) //왼쪽으로 돌아있으면
+            _rigid.velocity = new Vector2(DAMAGED_POWER, 0);
+        else
+            _rigid.velocity = new Vector2(-DAMAGED_POWER, 1);
         yield return new WaitForSeconds(0.1f);
         Vector3 randomVec = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
         Manager.Pool.GetPool(_damageEffect, transform.position + randomVec, transform.rotation);
         yield return new WaitForSeconds(0.5f);
-        _controller.StateMachine.ChangeState(PlayerState.Idle);
     }
     public void Attack()
     {
         _attackCount++;
-        if (_attackCount > _maxAttackCount)
+        if (_attackCount > _currentHead.Data.attackCount)
             return;
         _animator.SetInteger("AttackCount", _attackCount);
         StartCoroutine(CoAttack());
     }
 
+    private void Skill()
+    {
+        _currentHead.Skill();
+    }
+
     private void OnAttack(InputValue value)
     {
-        if(_attackCount < _maxAttackCount)
-        {
+        if(_attackCount < _currentHead.Data.attackCount)
             Attack();
-        }
     }
 
     private void OnMove(InputValue value)
@@ -108,6 +114,14 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
         _baseAttackPoint.transform.localPosition = new Vector3(movePos, _attackPointPosition.y, _attackPointPosition.z);
     }
 
+    private void OnSkill(InputValue value)
+    {
+        if(value.isPressed)
+        {
+            Skill();
+        }
+    }
+
 
 
     private IEnumerator CoAttack()
@@ -115,7 +129,7 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
         _baseAttackPoint.Attack();
         yield return new WaitForSeconds(0.5f);
         if (_attackCount > 1)
-            yield return new WaitForSeconds(0.3f * _maxAttackCount);
+            yield return new WaitForSeconds(0.3f * _attackCount);
         _attackCount = 0;
         _animator.SetInteger("AttackCount", _attackCount);
     }
