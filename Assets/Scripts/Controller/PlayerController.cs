@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
         CurrentHead = Util.GetOrAddComponent<Skul>(gameObject);
         stateMachine = new StateMachine<PlayerState>();
         stateMachine.AddState(PlayerState.Idle, new IdleState(this));
-        //stateMachine.AddState(PlayerState.Damaged, new DamagedState(this));
         stateMachine.AddState(PlayerState.Interact, new InteractState(this));
         stateMachine.AddState(PlayerState.Die, new DieState(this));
         stateMachine.Start(PlayerState.Idle);
@@ -218,24 +217,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    //private class DamagedState : PlayerStateClass
-    //{
-    //    public DamagedState(PlayerController owner) : base(owner) { }
-
-    //    public override void Enter()
-    //    {
-    //        owner._animator.Play("Damaged");
-    //        if (_renderer.flipX) //왼쪽으로 돌아있으면
-    //            _rigid.velocity = new Vector2(DAMAGED_POWER, 0);
-    //        else
-    //            _rigid.velocity = new Vector2(-DAMAGED_POWER, 1);
-    //    }
-    //    public override void Transition()
-    //    {
-
-    //    }
-    //}
 
     private class InteractState : PlayerStateClass
     {

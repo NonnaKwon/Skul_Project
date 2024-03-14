@@ -133,5 +133,4 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
         _attackCount = 0;
         _animator.SetInteger("AttackCount", _attackCount);
     }
-
 }
