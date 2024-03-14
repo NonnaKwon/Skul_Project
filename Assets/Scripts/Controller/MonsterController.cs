@@ -11,19 +11,19 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
     [SerializeField] AttackPoint _baseAttackPoint;
     [SerializeField] Slider _hpSlider;
 
+    [Header("Monster Info")]
+    [SerializeField] private float _maxHp = 12;
+    [SerializeField] private float _power = 3;
+    [SerializeField] private int _maxAttackCount = 1;
+
     //몬스터 스트립터블 데이터
-    private float _maxHp;
     private float _hp;
-    private float _power;
     private float _defencePower;
     private float _moveSpeed;
-    private float _damagedPower;
-    private int _maxAttackCount;
-    private float _traceRange;
-
     private int _attackCount;
+
     private float _attackRange;
-    private bool _targetFind;
+    private float _traceRange;
 
     Animator _animator;
     GameObject _target;
@@ -49,16 +49,11 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
 
     private void Start()
     {
-        _power = 3;
-        _damagedPower = 2;
-        _maxAttackCount = 1;
         _attackCount = 0;
-        _maxHp = 12;
         _traceRange = 10;
         _attackRange = 3;
         _hp = _maxHp;
         _moveSpeed = 5f;
-        _targetFind = false;
         _animator = GetComponent<Animator>();
         _rigid = GetComponent<Rigidbody2D>();
         _renderer = GetComponentInChildren<SpriteRenderer>();
@@ -147,9 +142,9 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
         Manager.Pool.GetPool(_damageEffect, transform.position + randomVec, transform.rotation);
         
         if (_renderer.flipX) //왼쪽으로 돌아있으면
-            _rigid.velocity = new Vector2(_damagedPower, 0);
+            _rigid.velocity = new Vector2(DAMAGED_POWER, 0);
         else
-            _rigid.velocity = new Vector2(-_damagedPower, 1);
+            _rigid.velocity = new Vector2(-DAMAGED_POWER, 1);
         yield return new WaitForSeconds(1f);
         stateMachine.ChangeState(MonsterState.Trace);
     }

@@ -11,10 +11,14 @@ public class Door : MonoBehaviour
     [SerializeField] bool _isEnter = false;
     [SerializeField] private bool _isActive = false;
 
+    Animator _animator;
+
     private void Start()
     {
+        _animator = GetComponent<Animator>();
         if (monsterList.Count == 0)
-            _isActive = true;
+            DoorActive();
+        Debug.Log(_animator);
     }
 
     private void Update()
@@ -29,14 +33,23 @@ public class Door : MonoBehaviour
                 monsterList.RemoveAt(i);
         }
 
-        if (monsterList.Count == 0)
-            _isActive = true;
+        if (monsterList.Count == 0 && !_isActive)
+            DoorActive();
+    }
+
+    private void DoorActive()
+    {
+        _isActive = true;
+        Debug.Log(_animator);
+        _animator.Play("Active");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag.Equals("Player"))
+        {
             _isEnter = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -45,10 +58,13 @@ public class Door : MonoBehaviour
             _isEnter = false;
     }
 
+
     private void OnEnter(InputValue value)
     {
         if(_isEnter && _isActive)
         {
+            if (LoadPos == null)
+                Manager.Scene.LoadScene(Define.Scene.BossScene);
             Manager.Scene.LoadNextStory(LoadPos);
         }
     }
