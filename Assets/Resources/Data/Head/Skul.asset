@@ -16,7 +16,8 @@ MonoBehaviour:
   animator: {fileID: 9100000, guid: 938b6942c78a43b4c978b33a9282188b, type: 2}
   headName: Skul
   jumpCount: 2
-  maxHp: 300
+  maxHp: 150
   power: 3
+  skillPower: 7
   defencePower: 1
   attackCount: 2

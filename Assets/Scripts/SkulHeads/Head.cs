@@ -7,5 +7,6 @@ public abstract class Head : MonoBehaviour
     public HeadData Data;
 
     public abstract void InputHead();
-    public abstract void Skill();
+    public abstract void SkillS();
+    public abstract void SkillA();
 }

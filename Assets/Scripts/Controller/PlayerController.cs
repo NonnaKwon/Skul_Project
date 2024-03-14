@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask _groundFind;
 
     public Head CurrentHead;
+    public bool IsRight = true; //오른쪽으로 가고있나
 
     private float _moveSpeed;
     private float _jumpPower;
@@ -208,9 +209,15 @@ public class PlayerController : MonoBehaviour
             {
                 _animator.SetBool("IsWalk", true);
                 if (_moveDir.x < 0)
+                {
                     _renderer.flipX = true;
+                    owner.IsRight = false;
+                }
                 else
+                {
                     _renderer.flipX = false;
+                    owner.IsRight = true;
+                }
             }
             else
                 _animator.SetBool("IsWalk", false);

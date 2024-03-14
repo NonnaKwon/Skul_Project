@@ -12,6 +12,7 @@ public class HeadData : ScriptableObject
     public int jumpCount;
     public float maxHp;
     public float power;
+    public float skillPower;
     public float defencePower;
     public int attackCount;
 }

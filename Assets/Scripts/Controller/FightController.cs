@@ -22,7 +22,6 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
     Animator _animator;
     Head _currentHead;
     Rigidbody2D _rigid;
-    SpriteRenderer _renderer;
 
     int _attackCount;
 
@@ -32,7 +31,6 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
         _attackPointPosition = _baseAttackPoint.gameObject.GetComponent<Transform>().localPosition;
         _damageEffect = Resources.Load("Prefabs/Effects/AttackEffect").GetComponent<PooledObject>();
         _controller = GetComponent<PlayerController>();
-        _renderer = GetComponentInChildren<SpriteRenderer>();
         _rigid = GetComponent<Rigidbody2D>();
 
         _currentHead = _controller.CurrentHead;
@@ -72,7 +70,7 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
     IEnumerator CoTakeDamage()
     {
         _animator.Play("Damaged");
-        if (_renderer.flipX) //왼쪽으로 돌아있으면
+        if (_controller.IsRight) //왼쪽으로 돌아있으면
             _rigid.velocity = new Vector2(DAMAGED_POWER, 0);
         else
             _rigid.velocity = new Vector2(-DAMAGED_POWER, 1);
@@ -90,10 +88,6 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
         StartCoroutine(CoAttack());
     }
 
-    private void Skill()
-    {
-        _currentHead.Skill();
-    }
 
     private void OnAttack(InputValue value)
     {
@@ -114,12 +108,14 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
         _baseAttackPoint.transform.localPosition = new Vector3(movePos, _attackPointPosition.y, _attackPointPosition.z);
     }
 
-    private void OnSkill(InputValue value)
+    private void OnSkillS(InputValue value)
     {
-        if(value.isPressed)
-        {
-            Skill();
-        }
+        _currentHead.SkillS();
+    }
+    
+    private void OnSkillA(InputValue value)
+    {
+        _currentHead.SkillA();
     }
 
 
