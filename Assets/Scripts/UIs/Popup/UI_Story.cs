@@ -52,7 +52,6 @@ public class UI_Story : UI_Popup
             Unload();
             return;
         }
-        Debug.Log(_index);
         GetText((int)Texts.StoryText).text = _scriptArr[_index];
         _index++;
     }

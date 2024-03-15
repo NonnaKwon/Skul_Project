@@ -114,7 +114,6 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
 
     private IEnumerator CoAttack()
     {
-        Debug.Log("공격");
         _baseAttackPoint.Attack();
         yield return new WaitForSeconds(0.5f);
         if (_attackCount > 1)
@@ -128,7 +127,6 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("데미지를 받았다!");
         _hp -= damage;
         _hpSlider.value -= damage;
         StartCoroutine(CoTakeDamage());
@@ -193,7 +191,6 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
 
         public override void Enter()
         {
-            Debug.Log("타겟이 범위에 들어왔다");
             owner._animator.SetBool("IsMove", true);
         }
         public override void Update()

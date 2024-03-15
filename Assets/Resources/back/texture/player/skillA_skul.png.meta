@@ -126,12 +126,12 @@ TextureImporter:
       name: skillA_skul_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 33
+        y: 32
+        width: 27
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: skillA_skul_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 122
+        y: 32
+        width: 61
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,43 +165,43 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skillA_skul_2
+      name: skillA_skul_4
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 219
+        y: 31
+        width: 34
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b12050e6c43a5c7479e0f643aaf33fe0
-      internalID: 2125906506
+      spriteID: 10a716cbc5025d444b1546043d75c6e5
+      internalID: -1791967290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skillA_skul_3
+      name: skillA_skul_6
       rect:
         serializedVersion: 2
-        x: 288
-        y: 0
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 319
+        y: 32
+        width: 28
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5fead72f37aee846b395388e126792e
-      internalID: -841841060
+      spriteID: a4ee0f7b6c84544479356955c24ef8e2
+      internalID: -2078742037
       vertices: []
       indices: 
       edges: []
@@ -221,6 +221,9 @@ TextureImporter:
       skillA_skul_1: -961732954
       skillA_skul_2: 2125906506
       skillA_skul_3: -841841060
+      skillA_skul_4: -1791967290
+      skillA_skul_5: -1989129821
+      skillA_skul_6: -2078742037
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

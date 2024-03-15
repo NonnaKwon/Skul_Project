@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask _groundFind;
 
     public Head CurrentHead;
-    public bool IsRight = true; //오른쪽으로 가고있나
+    public bool IsRight { get; set; } //오른쪽으로 가고있나
 
     private float _moveSpeed;
     private float _jumpPower;
@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerInit()
     {
+        IsRight = true;
         _stackJumpCount = 0;
         _moveSpeed = 8.4f;
         _jumpPower = 13f;

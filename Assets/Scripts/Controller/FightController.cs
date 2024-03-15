@@ -44,6 +44,7 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
             Manager.Game.Player.StateMachine.ChangeState(PlayerState.Die);
     }
 
+
     public void PlayerInit()
     {
         _attackCount = 0;
@@ -57,6 +58,7 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
     public float GetPower() { 
         return _currentHead.Data.power; 
     } //어택포인트에 보냄
+
 
     public void TakeDamage(float damage)
     {
@@ -79,6 +81,7 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
         Manager.Pool.GetPool(_damageEffect, transform.position + randomVec, transform.rotation);
         yield return new WaitForSeconds(0.5f);
     }
+
     public void Attack()
     {
         _attackCount++;
@@ -111,11 +114,13 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
     private void OnSkillS(InputValue value)
     {
         _currentHead.SkillS();
+        _connectUI.SkillCoolTime('S');
     }
     
     private void OnSkillA(InputValue value)
     {
         _currentHead.SkillA();
+        _connectUI.SkillCoolTime('A');
     }
 
 
