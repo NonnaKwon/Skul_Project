@@ -10,6 +10,7 @@ public class Door : MonoBehaviour
     [SerializeField] List<MonsterController> monsterList;
     [SerializeField] bool _isEnter = false;
     [SerializeField] private bool _isActive = false;
+    public int MonsterCount { get { return monsterList.Count; } }
     
     Animator _animator;
 

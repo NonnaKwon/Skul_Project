@@ -138,6 +138,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(CoDash('L'));
     }
 
+
     IEnumerator CoDash(char dir)
     {
         float correntVelocityX = _rigid.velocity.x;

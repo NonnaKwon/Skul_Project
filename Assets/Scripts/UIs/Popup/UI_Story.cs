@@ -31,6 +31,10 @@ public class UI_Story : UI_Popup
 
     public void Load(string id)
     {
+        GameScene scene = Manager.Scene.GetCurScene<GameScene>();
+        if (scene != null)
+            scene.UI_GameScene.gameObject.SetActive(false);
+
         Manager.Game.Player.StateMachine.ChangeState(Define.PlayerState.Interact);
         _index = 0;
         ScriptData script = ScriptDataList.GetData(id);
@@ -61,6 +65,10 @@ public class UI_Story : UI_Popup
         _animator.Play("DownScript");
         Manager.Game.Player.StateMachine.ChangeState(Define.PlayerState.Idle);
         yield return new WaitForSeconds(0.5f);
+
+        GameScene scene = Manager.Scene.GetCurScene<GameScene>();
+        if (scene != null)
+            scene.UI_GameScene.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
 

@@ -81,6 +81,10 @@ public class UI_GameScene : UI_Scene
         StartCoroutine(CoSkillCoolTime(coolTime,ui));
     }
 
+    public void MonsterCountUpdate(int count)
+    {
+        GetText((int)Texts.MonsterCount).text = count.ToString();
+    }
 
     IEnumerator CoSkillCoolTime(float coolTime,Image ui)
     {

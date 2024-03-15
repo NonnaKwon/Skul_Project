@@ -9,6 +9,12 @@ public class UI_TitleScene : UI_Scene
         StartButton
     }
 
+    private void Update()
+    {
+        if (Input.anyKeyDown)
+            ClickStartButton();
+    }
+
     public override bool Init()
     {
         if (base.Init() == false)

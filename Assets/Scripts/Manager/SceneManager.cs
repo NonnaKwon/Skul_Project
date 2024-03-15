@@ -61,7 +61,6 @@ public class SceneManager : Singleton<SceneManager>
     {
         Manager.Game.Player.PlayerInit();
         LoadNextStory(regenPos);
-        
     }
 
     IEnumerator CoLoadNextStory(Transform loadTransform)
