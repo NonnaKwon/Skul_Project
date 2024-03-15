@@ -34,9 +34,9 @@ public class SceneManager : Singleton<SceneManager>
         return curScene as T;
     }
 
-    public void LoadScene(Define.Scene scene)
+    public void LoadScene(Define.Scene scene,bool loadingRoutine = true)
     {
-        StartCoroutine(LoadingRoutine(Enum.GetName(typeof(Define.Scene),scene)));
+        StartCoroutine(LoadingRoutine(Enum.GetName(typeof(Define.Scene), scene), loadingRoutine));
     }
 
     public void StoryLoad(string id)
@@ -79,11 +79,12 @@ public class SceneManager : Singleton<SceneManager>
 
 
 
-    IEnumerator LoadingRoutine(string scene)
+    IEnumerator LoadingRoutine(string scene, bool loadingRoutine)
     {
+        Color color = loadingRoutine ? Color.white : Color.black;
         fade.gameObject.SetActive(true);
-        yield return FadeOut(Color.white);
-        loadingText.SetActive(true);
+        yield return FadeOut(color);
+        loadingText.SetActive(loadingRoutine);
 
         Manager.Pool.ClearPool();
         Manager.Sound.StopSFX();
@@ -91,7 +92,7 @@ public class SceneManager : Singleton<SceneManager>
         Manager.UI.CloseInGameUI();
 
         Time.timeScale = 0f;
-        loadingBar.gameObject.SetActive(true);
+        loadingBar.gameObject.SetActive(loadingRoutine);
 
         AsyncOperation oper = UnitySceneManager.LoadSceneAsync(scene);
         while (oper.isDone == false)
@@ -109,7 +110,7 @@ public class SceneManager : Singleton<SceneManager>
         Time.timeScale = 1f;
 
         loadingText.SetActive(false);
-        yield return FadeIn(Color.white);
+        yield return FadeIn(color);
         fade.gameObject.SetActive(false);
     }
 

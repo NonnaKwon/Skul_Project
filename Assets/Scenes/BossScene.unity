@@ -381,6 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c508a9b684b8254aae88b740a559470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI_GameScene: {fileID: 0}
 --- !u!4 &362842649
 Transform:
   m_ObjectHideFlags: 0
@@ -835,7 +836,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 511
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -856,7 +857,7 @@ Transform:
   m_GameObject: {fileID: 818763193}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.394964, y: 1.84293, z: -10}
+  m_LocalPosition: {x: -25.372025, y: 1.84288, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3471,6 +3472,10 @@ PrefabInstance:
       value: UI_GameScene
       objectReference: {fileID: 0}
     - target: {fileID: 3250944342969192957, guid: aedb53ebd7fb137479c93f8dfba39659, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.3551025
+      objectReference: {fileID: 0}
+    - target: {fileID: 3250944342969192957, guid: aedb53ebd7fb137479c93f8dfba39659, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 1.7279358
       objectReference: {fileID: 0}
@@ -3725,6 +3730,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -0.099998474
       objectReference: {fileID: 0}
+    - target: {fileID: 3339701051643344641, guid: c83c1af278d2561408d5bbda531a3812, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.6000061
+      objectReference: {fileID: 0}
     - target: {fileID: 4521954601081234603, guid: c83c1af278d2561408d5bbda531a3812, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.49938965
@@ -3824,6 +3833,10 @@ PrefabInstance:
     - target: {fileID: 7543220432326195863, guid: c83c1af278d2561408d5bbda531a3812, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781439913957209209, guid: c83c1af278d2561408d5bbda531a3812, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.3999939
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

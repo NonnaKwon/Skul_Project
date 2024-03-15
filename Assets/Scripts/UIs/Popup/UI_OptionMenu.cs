@@ -24,20 +24,22 @@ public class UI_OptionMenu : UI_Popup
 
     private void ReturnBtnClick()
     {
-        Debug.Log("클릭");
+        Debug.Log("리턴버튼클릭");
         Manager.UI.ClosePopupUI(this);
     }
 
     private void RestartBtnClick()
     {
-        Debug.Log("클릭");
-        Manager.Scene.LoadScene(Define.Scene.GameScene);
+        Debug.Log("리스타트클릭");
+        Manager.UI.ClosePopupUI(this);
+        Manager.Scene.LoadScene(Define.Scene.GameScene,false);
     }
 
     private void TitleSceneBtnClick()
     {
-        Debug.Log("클릭");
-        Manager.Scene.LoadScene(Define.Scene.TitleScene);
+        Debug.Log("타이틀클릭");
+        Manager.UI.ClosePopupUI(this);
+        Manager.Scene.LoadScene(Define.Scene.TitleScene, false);
     }
 
 
