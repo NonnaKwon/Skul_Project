@@ -21,3 +21,5 @@ MonoBehaviour:
   skillPower: 7
   defencePower: 1
   attackCount: 2
+  coolTimeA: 5
+  coolTimeS: 3

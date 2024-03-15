@@ -11,7 +11,8 @@ public class UI_GameScene : UI_Scene
     enum Texts
     {
         MaxHp,
-        CurrentHp
+        CurrentHp,
+        MonsterCount
     }
 
     enum GameObjects

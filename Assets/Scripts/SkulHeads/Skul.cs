@@ -66,7 +66,6 @@ public class Skul : Head
         if (_head != null)
             return;
         curTime = 0;
-
         float dis = 1;
         if (!Manager.Game.Player.IsRight)
             dis *= -4;

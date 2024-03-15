@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameScene : BaseScene
 {
+    public UI_GameScene UI_GameScene;
     protected override void Init()
     {
         base.Init();

@@ -10,7 +10,7 @@ public class Door : MonoBehaviour
     [SerializeField] List<MonsterController> monsterList;
     [SerializeField] bool _isEnter = false;
     [SerializeField] private bool _isActive = false;
-
+    
     Animator _animator;
 
     private void Start()
