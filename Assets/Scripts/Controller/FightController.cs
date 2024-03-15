@@ -130,7 +130,7 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
         _baseAttackPoint.Attack();
         yield return new WaitForSeconds(0.5f);
         if (_attackCount > 1)
-            yield return new WaitForSeconds(0.3f * _attackCount);
+            yield return new WaitForSeconds(0.1f * _attackCount);
         _attackCount = 0;
         _animator.SetInteger("AttackCount", _attackCount);
     }
