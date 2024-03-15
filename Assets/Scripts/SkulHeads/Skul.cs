@@ -14,7 +14,7 @@ public class Skul : Head
     AnimatorController _skillAniController;
 
     private float RegenTime;
-    private float curTime = 0;
+    private float curTime;
 
     private void Start()
     {
@@ -24,6 +24,7 @@ public class Skul : Head
         _skillAniController = Manager.Resource.Load<AnimatorController>("Animations/Player/SkulSkill/PlayerAnimationSkul");
         _headPrefab = Manager.Resource.Load<SkulSkillObject>("Prefabs/SkulHead");
         RegenTime = Data.coolTimeA;
+        curTime = RegenTime;
     }
 
     private void Update()
@@ -63,7 +64,7 @@ public class Skul : Head
 
     public override void SkillA()
     {
-        if (_head != null)
+        if (curTime < RegenTime || _head != null)
             return;
         curTime = 0;
         float dis = 1;

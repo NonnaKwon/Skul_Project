@@ -66,7 +66,8 @@ public class Door : MonoBehaviour
         {
             if (LoadPos == null)
                 Manager.Scene.LoadScene(Define.Scene.BossScene);
-            Manager.Scene.LoadNextStory(LoadPos);
+            else
+                Manager.Scene.LoadNextStory(LoadPos);
         }
     }
 }
