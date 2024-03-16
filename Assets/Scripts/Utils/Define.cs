@@ -6,7 +6,7 @@ public class Define
 {
     public const int MAX_JUMP_COUNT = 2;
     public const float DAMAGED_POWER = 2; //데미지 받았을 때 밀리는 힘
-
+    public const int BOSS1_PHASE_COUNT = 3;
     public enum MapNumber
     {
         Tutorial01,
