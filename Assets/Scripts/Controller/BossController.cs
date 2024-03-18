@@ -11,6 +11,9 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
     [SerializeField] UI_BossMap _connectUI;
     [SerializeField] float _maxTime;
     [SerializeField] private float _minTIme;
+    [SerializeField] GameObject _rightHand;
+    [SerializeField] GameObject _leftHand;
+    [SerializeField] Transform _energyBallPos;
 
     private int _curPower;
     private float _time;
@@ -20,9 +23,13 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
 
     Animator _animator;
     PooledObject _damageEffect;
+    AttackPointSkill _rightHandCollider;
+    AttackPointSkill _leftHandCollider;
+    GameObject _energyBallPrefab;
+    GameObject _energyMainBallPrefab;
 
     private StateMachine<BossState> stateMachine;
-    
+
 
     private void Awake()
     {
@@ -37,14 +44,25 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
 
     void Start()
     {
-        _maxHp = 100;
+        _maxHp = 200;
         _time = 0;
         _hp = _maxHp;
         _connectUI.InitHPBar(_maxHp);
         _skillHp = 40;
 
         _damageEffect = Resources.Load("Prefabs/Effects/AttackEffect").GetComponent<PooledObject>();
+        _rightHandCollider = _rightHand.GetComponentInChildren<AttackPointSkill>();
+        _leftHandCollider = _leftHand.GetComponentInChildren<AttackPointSkill>();
+        _rightHandCollider.SkillPower = 30;
+        _leftHandCollider.SkillPower = 30;
+
+
+        _rightHandCollider.gameObject.SetActive(false);
+        _leftHandCollider.gameObject.SetActive(false);
+
         _animator = GetComponent<Animator>();
+        _energyBallPrefab = Manager.Resource.Load<GameObject>("Prefabs/Effects/EnergyBall");
+        _energyMainBallPrefab = Manager.Resource.Load<GameObject>("Prefabs/Effects/MainBall");
         stateMachine.Start(BossState.Intro);
         Debug.Log("완료");
     }
@@ -61,18 +79,27 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
 
     private void Skill()
     {
+        Debug.Log("Skill");
         stateMachine.ChangeState(BossState.Pattern);
         if (_hp < _skillHp)
-            EnergyBall();
-        int random = Random.Range(0, 2);
-        switch(random)
         {
-            case 0:
-                DownHit();
-                break;
-            case 1:
-                SlideHit();
-                break;
+            _curPower = 45;
+            EnergyBall();
+        }
+        else
+        {
+            int random = Random.Range(0, 2);
+            Debug.Log(random);
+            switch (random)
+            {
+                case 0:
+                    _curPower = 50;
+                    DownHit();
+                    break;
+                case 1:
+                    SlideHit();
+                    break;
+            }
         }
     }
 
@@ -93,7 +120,7 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
 
     public void Attack()
     {
-        
+
 
     }
 
@@ -107,33 +134,130 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
     private void DownHit()
     {
         Debug.Log("DownHit Skill()");
-        //_animator.Play("DownHit");
+        _animator.Play("DownHit");
         StartCoroutine(CoDown());
     }
 
     IEnumerator CoDown()
     {
-        Vector2 targetPosition = new Vector2(0, 40);
+        Vector2 curPosL = _leftHand.transform.position;
+        Vector2 curPosR = _rightHand.transform.position;
+        //위로 올리기
+        Vector2 targetPosition = new Vector2(5, 10);
+        while (_leftHand.transform.position.y <= targetPosition.y - 1)
+        {
+            Vector2 transPosL = Vector2.Lerp(_leftHand.transform.position, new Vector2(_leftHand.transform.position.x - targetPosition.x, targetPosition.y), Time.deltaTime);
+            Vector2 transPosR = Vector2.Lerp(_rightHand.transform.position, new Vector2(_rightHand.transform.position.x + targetPosition.x, targetPosition.y), Time.deltaTime);
+            _leftHand.transform.position = transPosL;
+            _rightHand.transform.position = transPosR;
+            yield return null;
+        }
 
-        //Lerp 사용하여 위로 올라갔다가 타겟으로 내려찍어버리기 (찍을때 hitPoint Attack 호출)
-        yield return null;
+        int moveSpeed = 10;
+        targetPosition = Manager.Game.Player.gameObject.transform.position;
+        Vector2 dir = (targetPosition - new Vector2(transform.position.x, transform.position.y)).normalized;
+        if (dir.x < 0)
+        {
+            while (_leftHand.transform.position.y >= targetPosition.y+3)
+            {
+                Vector2 transPosL = Vector2.Lerp(_leftHand.transform.position, targetPosition, Time.deltaTime* moveSpeed);
+                _leftHand.transform.position = transPosL;
+                yield return null;
+            }
+            _leftHand.GetComponentInChildren<AttackPoint>().Attack();
+        }
+        else
+        {
+            while (_rightHand.transform.position.y >= targetPosition.y+3)
+            {
+                Vector2 transPosL = Vector2.Lerp(_rightHand.transform.position, targetPosition, Time.deltaTime* moveSpeed);
+                _rightHand.transform.position = transPosL;
+                yield return null;
+            }
+            _rightHand.GetComponentInChildren<AttackPoint>().Attack();
+        }
+        yield return new WaitForSeconds(1f);
+        _leftHand.transform.position = curPosL;
+        _rightHand.transform.position = curPosR;
+        stateMachine.ChangeState(BossState.Idle);
     }
 
     private void SlideHit()
     {
         Debug.Log("SlideHit Skill()");
-        _animator.Play("SliceHit");
+        StartCoroutine(CoSlideHit());
+    }
+
+    IEnumerator CoSlideHit()
+    {
         Vector3 dir = (Manager.Game.Player.transform.position - transform.position).normalized;
-        _animator.SetBool("IsRight", dir.x > 0);
+        Vector2 curPosL = _leftHand.transform.position;
+        Vector2 curPosR = _rightHand.transform.position;
+        //위로 올리기
+        Vector2 targetPosition = new Vector2(60, 0);
+        while (_leftHand.transform.position.x >= - targetPosition.x + 1)
+        {
+            Vector2 transPosL = Vector2.Lerp(_leftHand.transform.position, new Vector2(_leftHand.transform.position.x - targetPosition.x, _leftHand.transform.position.y), Time.deltaTime);
+            Vector2 transPosR = Vector2.Lerp(_rightHand.transform.position, new Vector2(_rightHand.transform.position.x + targetPosition.x, _rightHand.transform.position.y), Time.deltaTime);
+            _leftHand.transform.position = transPosL;
+            _rightHand.transform.position = transPosR;
+            yield return null;
+        }
+
+        int moveSpeed = 1;
+        targetPosition = new Vector2(60, 0);
+        if (dir.x < 0)
+        {
+            _leftHandCollider.gameObject.SetActive(true);
+            while (_leftHand.transform.position.x <= targetPosition.x - 3)
+            {
+                Vector2 transPosL = Vector2.Lerp(_leftHand.transform.position, new Vector2(_leftHand.transform.position.x + targetPosition.x, _leftHand.transform.position.y), Time.deltaTime * moveSpeed);
+                _leftHand.transform.position = transPosL;
+                yield return null;
+            }
+            _leftHandCollider.gameObject.SetActive(false);
+        }
+        else
+        {
+            _rightHandCollider.gameObject.SetActive(true);
+            while (_rightHand.transform.position.x >= -targetPosition.x + 3)
+            {
+                Vector2 transPosR = Vector2.Lerp(_rightHand.transform.position, new Vector2(_rightHand.transform.position.x - targetPosition.x, _rightHand.transform.position.y), Time.deltaTime * moveSpeed);
+                _rightHand.transform.position = transPosR;
+                yield return null;
+            }
+            _rightHandCollider.gameObject.SetActive(false);
+        }
+        yield return new WaitForSeconds(1f);
+        _leftHand.transform.position = curPosL;
+        _rightHand.transform.position = curPosR;
+        stateMachine.ChangeState(BossState.Idle);
     }
 
 
     private void EnergyBall()
     {
-        // 볼 프리팹을 들고와서 여러방향으로 Instantiate 하면됨. 
+        Debug.Log("EnergyBall Skill()");
+        StartCoroutine(CoEnergyBall());
+        // 볼 프리팹을 들고와서 여러방향으로 Instantiate 하면됨. 360도를 8등분해서 벡터로 넘겨줘.
         // 8방향 볼 쏘기
         // 3번 하고 쓰러짐 -> 상태 Down
         // 플레이어 방향으로 큰 볼 던지기
+
+    }
+
+    IEnumerator CoEnergyBall()
+    {
+        int count = 3;
+        _animator.Play("EnergyBall");
+        yield return new WaitForSeconds(3f);
+        while (count-- > 0)
+        {
+            Instantiate(_energyBallPrefab, _energyBallPos.position, _energyBallPos.rotation);
+            yield return new WaitForSeconds(1.3f);
+        }
+
+        stateMachine.ChangeState(BossState.Idle);
     }
 
 
@@ -175,14 +299,15 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
 
         public override void Enter()
         {
-            Debug.Log("help");
+            owner._animator.Play("Idle");
             _skillTerm = Random.Range(owner._minTIme, owner._maxTime);
+            Debug.Log(_skillTerm);
             _skillTime = 0;
         }
 
         public override void Update()
         {
-            _skillTerm += Time.deltaTime;
+            _skillTime += Time.deltaTime;
             if (_skillTime > _skillTerm)
                 owner.Skill();
         }
@@ -229,7 +354,8 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
 
         public override void Transition()
         {
-
+            if (_downTime < _time)
+                owner.stateMachine.ChangeState(BossState.Idle);
         }
 
     }

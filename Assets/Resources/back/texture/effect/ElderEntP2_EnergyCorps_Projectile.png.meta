@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,7 +121,1099 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 22
+        width: 90
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9c28769fbd9c4c42b1bc777af8473b8
+      internalID: -325239535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_1
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 22
+        width: 88
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec543f9c50c50794a91f19510014304f
+      internalID: -1373724183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_2
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 22
+        width: 90
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ddac5f88c87b54484eee109f212996
+      internalID: 1472872975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_3
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 22
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 389faca300a2c4b4c85259a705b2fa2b
+      internalID: -1281014437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_4
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 22
+        width: 97
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d62a0e050378fa4c9ad6259e2514d2a
+      internalID: 377211783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_5
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 22
+        width: 98
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e93cfedf0ed047d4e9ad97e2d8989d14
+      internalID: -955358979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_6
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 22
+        width: 98
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76770cf44cdf8204fad467f4a12ab556
+      internalID: -112579914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_7
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 22
+        width: 101
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342112ec9b10e11419ff5867327049b1
+      internalID: -543667256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_8
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 22
+        width: 101
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ece7b67751e604289741c4d2297f76
+      internalID: 940430703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_9
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 22
+        width: 97
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 957191ded069ab2498d903a42d3f41c9
+      internalID: -1749704385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_10
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 22
+        width: 97
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6470585bebb86f24895de729be92adb2
+      internalID: 1620678435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_11
+      rect:
+        serializedVersion: 2
+        x: 1429
+        y: 22
+        width: 97
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22c04f9f7d331bf4081f38e758f47325
+      internalID: -347410704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_12
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 22
+        width: 88
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7346dbeaeb320574085f5c5b4c30419c
+      internalID: -1760832263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_13
+      rect:
+        serializedVersion: 2
+        x: 1682
+        y: 22
+        width: 91
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 165dc6f4f63d0024493a336c22c6c37c
+      internalID: -668173292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_14
+      rect:
+        serializedVersion: 2
+        x: 1812
+        y: 22
+        width: 88
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2bf7b541f3215044ada95a38d5bbdd3
+      internalID: -1734602063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_15
+      rect:
+        serializedVersion: 2
+        x: 1939
+        y: 22
+        width: 90
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7714e3fa5bbb6d47bdc16c79a5f528b
+      internalID: 1692360022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_16
+      rect:
+        serializedVersion: 2
+        x: 2065
+        y: 21
+        width: 98
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48ea18c4fddb1084abb2680501571aad
+      internalID: 783880129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_17
+      rect:
+        serializedVersion: 2
+        x: 2195
+        y: 21
+        width: 99
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d5dd28d52c977d4da75f3c06487272a
+      internalID: -496765908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_18
+      rect:
+        serializedVersion: 2
+        x: 2324
+        y: 21
+        width: 99
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 036df67e4a0a5d041a6b56cf53ffcdf6
+      internalID: 1741395348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_19
+      rect:
+        serializedVersion: 2
+        x: 2451
+        y: 21
+        width: 101
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a774be32ce502264e8599e91d32820b5
+      internalID: 310732821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_20
+      rect:
+        serializedVersion: 2
+        x: 2573
+        y: 20
+        width: 105
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82f62bc26b82d904291ef15739d41e5d
+      internalID: 1520930615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_21
+      rect:
+        serializedVersion: 2
+        x: 2702
+        y: 21
+        width: 98
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62e305d173226ba4dbae1ca6af52314a
+      internalID: -1751862494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_22
+      rect:
+        serializedVersion: 2
+        x: 2829
+        y: 21
+        width: 100
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcf270289adab1f408193f75560b109c
+      internalID: -47935309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_23
+      rect:
+        serializedVersion: 2
+        x: 2957
+        y: 22
+        width: 98
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4289d14d705452942b9d0f8e1c2d4bdb
+      internalID: -1046942592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_24
+      rect:
+        serializedVersion: 2
+        x: 3086
+        y: 22
+        width: 94
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9caf0320f00db4418a299818ee3c9bd
+      internalID: 643369825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_25
+      rect:
+        serializedVersion: 2
+        x: 3213
+        y: 22
+        width: 94
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88021c209f9815a4c9228f60849848ec
+      internalID: 780296965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_26
+      rect:
+        serializedVersion: 2
+        x: 3341
+        y: 22
+        width: 96
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a52138aa29d51b4ebd96d747e96b25d
+      internalID: 114574245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_27
+      rect:
+        serializedVersion: 2
+        x: 3470
+        y: 22
+        width: 94
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9df9326661c30d14eaae3eb12eebf468
+      internalID: -1681291033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_28
+      rect:
+        serializedVersion: 2
+        x: 3599
+        y: 22
+        width: 94
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0debf27a6cf882140aa010cfeebf9ccd
+      internalID: 1113239560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_29
+      rect:
+        serializedVersion: 2
+        x: 3728
+        y: 21
+        width: 98
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f79c9f0e28fd8414ab2fb60ceccbf5ac
+      internalID: 726976661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_30
+      rect:
+        serializedVersion: 2
+        x: 3860
+        y: 20
+        width: 93
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e7a25149b45194ba0a6f84965951a7
+      internalID: 1978242032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_31
+      rect:
+        serializedVersion: 2
+        x: 3987
+        y: 21
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fccf4579a7950044d8d6eb9fba2a2562
+      internalID: -158332253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_32
+      rect:
+        serializedVersion: 2
+        x: 4113
+        y: 21
+        width: 91
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c80e738afbd69ba45a22303a39e8a243
+      internalID: -735043735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_33
+      rect:
+        serializedVersion: 2
+        x: 4238
+        y: 21
+        width: 96
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b7c7f4b46c3144d8808835bcc433f4
+      internalID: -1166244341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_34
+      rect:
+        serializedVersion: 2
+        x: 4364
+        y: 22
+        width: 97
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fb0f5dc77d5613418dd76913e959e45
+      internalID: 562955786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_35
+      rect:
+        serializedVersion: 2
+        x: 4494
+        y: 22
+        width: 95
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f693cabc5ade8f74fa3e01818b9bbf53
+      internalID: 2134972373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_36
+      rect:
+        serializedVersion: 2
+        x: 4622
+        y: 22
+        width: 99
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f448916802c7589429d47f5083187ee7
+      internalID: 2016801769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_37
+      rect:
+        serializedVersion: 2
+        x: 4751
+        y: 22
+        width: 100
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb0b1f5747565644595a899ffdf0c8cb
+      internalID: -89695767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_38
+      rect:
+        serializedVersion: 2
+        x: 4880
+        y: 22
+        width: 100
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf92039ca8a8e8f48a11813962c80388
+      internalID: -1384495133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_39
+      rect:
+        serializedVersion: 2
+        x: 5010
+        y: 22
+        width: 97
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8373f182b9d996240b19dc9c33103a01
+      internalID: -8846888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_40
+      rect:
+        serializedVersion: 2
+        x: 5142
+        y: 22
+        width: 92
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f3e91c5beb325b4f93ad0554e494a4c
+      internalID: -1990903533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_41
+      rect:
+        serializedVersion: 2
+        x: 5270
+        y: 22
+        width: 91
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50d27bed0373a7444b3dc180b71f056e
+      internalID: 1337615758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_42
+      rect:
+        serializedVersion: 2
+        x: 5397
+        y: 22
+        width: 92
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ff8e2cdd1fe394f97938fb0e938cda
+      internalID: 1105812737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_43
+      rect:
+        serializedVersion: 2
+        x: 5525
+        y: 22
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71fc27c51da43d942a2576b1ff2d2aef
+      internalID: -589095761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_44
+      rect:
+        serializedVersion: 2
+        x: 5653
+        y: 22
+        width: 88
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1463207d8e8ed4f4fb3525189217684a
+      internalID: -1032908433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_45
+      rect:
+        serializedVersion: 2
+        x: 5779
+        y: 22
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d81497227894e249b89ffe5590a8fb5
+      internalID: 1040185715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_46
+      rect:
+        serializedVersion: 2
+        x: 5907
+        y: 22
+        width: 90
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00534b34adac3d44f92bf5bee80d5dd1
+      internalID: 316338471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_47
+      rect:
+        serializedVersion: 2
+        x: 6035
+        y: 22
+        width: 94
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4161ee4607872904eba246f9388ec85f
+      internalID: 877033745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_48
+      rect:
+        serializedVersion: 2
+        x: 6167
+        y: 22
+        width: 93
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e74c347b0ced6d48941cd38b7fd5bfb
+      internalID: 2096848307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_49
+      rect:
+        serializedVersion: 2
+        x: 6294
+        y: 22
+        width: 97
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6efa755bb54db1c42a8c52b7063d37ec
+      internalID: -821386793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_50
+      rect:
+        serializedVersion: 2
+        x: 6421
+        y: 22
+        width: 97
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fec0ee9f843e574e88033632c764e25
+      internalID: 396611888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Projectile_51
+      rect:
+        serializedVersion: 2
+        x: 6550
+        y: 22
+        width: 94
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 404f05346b864be49b245dfb1dcba6d7
+      internalID: 1571774358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +1224,59 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ElderEntP2_EnergyCorps_Projectile_0: -325239535
+      ElderEntP2_EnergyCorps_Projectile_1: -1373724183
+      ElderEntP2_EnergyCorps_Projectile_10: 1620678435
+      ElderEntP2_EnergyCorps_Projectile_11: -347410704
+      ElderEntP2_EnergyCorps_Projectile_12: -1760832263
+      ElderEntP2_EnergyCorps_Projectile_13: -668173292
+      ElderEntP2_EnergyCorps_Projectile_14: -1734602063
+      ElderEntP2_EnergyCorps_Projectile_15: 1692360022
+      ElderEntP2_EnergyCorps_Projectile_16: 783880129
+      ElderEntP2_EnergyCorps_Projectile_17: -496765908
+      ElderEntP2_EnergyCorps_Projectile_18: 1741395348
+      ElderEntP2_EnergyCorps_Projectile_19: 310732821
+      ElderEntP2_EnergyCorps_Projectile_2: 1472872975
+      ElderEntP2_EnergyCorps_Projectile_20: 1520930615
+      ElderEntP2_EnergyCorps_Projectile_21: -1751862494
+      ElderEntP2_EnergyCorps_Projectile_22: -47935309
+      ElderEntP2_EnergyCorps_Projectile_23: -1046942592
+      ElderEntP2_EnergyCorps_Projectile_24: 643369825
+      ElderEntP2_EnergyCorps_Projectile_25: 780296965
+      ElderEntP2_EnergyCorps_Projectile_26: 114574245
+      ElderEntP2_EnergyCorps_Projectile_27: -1681291033
+      ElderEntP2_EnergyCorps_Projectile_28: 1113239560
+      ElderEntP2_EnergyCorps_Projectile_29: 726976661
+      ElderEntP2_EnergyCorps_Projectile_3: -1281014437
+      ElderEntP2_EnergyCorps_Projectile_30: 1978242032
+      ElderEntP2_EnergyCorps_Projectile_31: -158332253
+      ElderEntP2_EnergyCorps_Projectile_32: -735043735
+      ElderEntP2_EnergyCorps_Projectile_33: -1166244341
+      ElderEntP2_EnergyCorps_Projectile_34: 562955786
+      ElderEntP2_EnergyCorps_Projectile_35: 2134972373
+      ElderEntP2_EnergyCorps_Projectile_36: 2016801769
+      ElderEntP2_EnergyCorps_Projectile_37: -89695767
+      ElderEntP2_EnergyCorps_Projectile_38: -1384495133
+      ElderEntP2_EnergyCorps_Projectile_39: -8846888
+      ElderEntP2_EnergyCorps_Projectile_4: 377211783
+      ElderEntP2_EnergyCorps_Projectile_40: -1990903533
+      ElderEntP2_EnergyCorps_Projectile_41: 1337615758
+      ElderEntP2_EnergyCorps_Projectile_42: 1105812737
+      ElderEntP2_EnergyCorps_Projectile_43: -589095761
+      ElderEntP2_EnergyCorps_Projectile_44: -1032908433
+      ElderEntP2_EnergyCorps_Projectile_45: 1040185715
+      ElderEntP2_EnergyCorps_Projectile_46: 316338471
+      ElderEntP2_EnergyCorps_Projectile_47: 877033745
+      ElderEntP2_EnergyCorps_Projectile_48: 2096848307
+      ElderEntP2_EnergyCorps_Projectile_49: -821386793
+      ElderEntP2_EnergyCorps_Projectile_5: -955358979
+      ElderEntP2_EnergyCorps_Projectile_50: 396611888
+      ElderEntP2_EnergyCorps_Projectile_51: 1571774358
+      ElderEntP2_EnergyCorps_Projectile_6: -112579914
+      ElderEntP2_EnergyCorps_Projectile_7: -543667256
+      ElderEntP2_EnergyCorps_Projectile_8: 940430703
+      ElderEntP2_EnergyCorps_Projectile_9: -1749704385
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -15,6 +15,7 @@ public class SkulSkillObject : MonoBehaviour
         _animator = GetComponent<Animator>();
         _rigid = GetComponent<Rigidbody2D>();
         _fallEffect = Manager.Resource.Load<PooledObject>("Prefabs/Effects/AttackEffect");
+        GetComponentInChildren<AttackPointSkill>().SkillPower = Manager.Game.Player.CurrentHead.Data.skillPower;
         StartCoroutine(ThrowHead());
     }
     IEnumerator ThrowHead()

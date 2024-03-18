@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,7 +121,511 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 32
+        width: 171
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43d4d57d4802a9b4d9a842e928120f1c
+      internalID: -1043985637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_1
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 29
+        width: 162
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ceaf05f14a3d444eb519c3b3e68dafd
+      internalID: -93688231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_2
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 29
+        width: 173
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 206f37f59a5c87f46bd283dd9da74ff2
+      internalID: -2022638092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_3
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 18
+        width: 173
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea5a4eb66b36aa40b42dd2a7b1b2008
+      internalID: -824233211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_4
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 31
+        width: 170
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63c3c0668c53c8f4cb530a642983f15b
+      internalID: -124053560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_5
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 32
+        width: 171
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 913122fbe5d60544a8f993ff3bbfdeaf
+      internalID: -493648158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_6
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 32
+        width: 170
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c4cdf10bce0f84bb2963644d996bc1
+      internalID: 2074232969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_7
+      rect:
+        serializedVersion: 2
+        x: 1593
+        y: 34
+        width: 168
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95fdfd911da6d9e41b42e83894dca845
+      internalID: 1607355704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_8
+      rect:
+        serializedVersion: 2
+        x: 1811
+        y: 20
+        width: 181
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e53edaa5f94fda429890af9d8b7ee20
+      internalID: -1899732094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_9
+      rect:
+        serializedVersion: 2
+        x: 2039
+        y: 24
+        width: 172
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55ef8bf6b0f5bd843bc6fea840fd54ce
+      internalID: -203973975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_10
+      rect:
+        serializedVersion: 2
+        x: 2263
+        y: 23
+        width: 178
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f602b54fe1391e743b0a1cf83e6d207b
+      internalID: 477284545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_11
+      rect:
+        serializedVersion: 2
+        x: 2494
+        y: 21
+        width: 176
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccd59a872a3745d48ab3c823c72c51cf
+      internalID: 1081325194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_12
+      rect:
+        serializedVersion: 2
+        x: 2706
+        y: 24
+        width: 187
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a022345277679b4496e0ea99bab3337
+      internalID: -323508162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_13
+      rect:
+        serializedVersion: 2
+        x: 2927
+        y: 32
+        width: 186
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38705ecc08f46a94682a266fb35aa3f7
+      internalID: -1593305118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_14
+      rect:
+        serializedVersion: 2
+        x: 3161
+        y: 27
+        width: 175
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdac1f0322d566543b5116b384a49a52
+      internalID: 123218825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_15
+      rect:
+        serializedVersion: 2
+        x: 3381
+        y: 28
+        width: 182
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90925c71e84db43449aba4d475b59600
+      internalID: 13421560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_16
+      rect:
+        serializedVersion: 2
+        x: 3604
+        y: 26
+        width: 181
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed97559372bce99448af2f05407b1d40
+      internalID: 1722124369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_17
+      rect:
+        serializedVersion: 2
+        x: 3833
+        y: 24
+        width: 178
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada5857bac92c0544ac73653cb5acc8e
+      internalID: 1805940752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_18
+      rect:
+        serializedVersion: 2
+        x: 4058
+        y: 25
+        width: 177
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df2b0284d95b774baac0baf1e8fb910
+      internalID: -36849804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_19
+      rect:
+        serializedVersion: 2
+        x: 4274
+        y: 24
+        width: 188
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ab0a20ee877ee8439ad577d70f5bbb6
+      internalID: -1034657076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_20
+      rect:
+        serializedVersion: 2
+        x: 4489
+        y: 23
+        width: 189
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dbc83ec989c677458c26946c1d71dac
+      internalID: 2057173642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_21
+      rect:
+        serializedVersion: 2
+        x: 4720
+        y: 20
+        width: 189
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d50416fcc59acbd45838d533d821e772
+      internalID: -676330663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_22
+      rect:
+        serializedVersion: 2
+        x: 4945
+        y: 23
+        width: 189
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31fdab71127a47f458fe23937180993b
+      internalID: 1648815752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElderEntP2_EnergyCorps_Spark_23
+      rect:
+        serializedVersion: 2
+        x: 5171
+        y: 26
+        width: 184
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86543e8ed64638d41ae8cfd17cd45096
+      internalID: -53374201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +636,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ElderEntP2_EnergyCorps_Spark_0: -1043985637
+      ElderEntP2_EnergyCorps_Spark_1: -93688231
+      ElderEntP2_EnergyCorps_Spark_10: 477284545
+      ElderEntP2_EnergyCorps_Spark_11: 1081325194
+      ElderEntP2_EnergyCorps_Spark_12: -323508162
+      ElderEntP2_EnergyCorps_Spark_13: -1593305118
+      ElderEntP2_EnergyCorps_Spark_14: 123218825
+      ElderEntP2_EnergyCorps_Spark_15: 13421560
+      ElderEntP2_EnergyCorps_Spark_16: 1722124369
+      ElderEntP2_EnergyCorps_Spark_17: 1805940752
+      ElderEntP2_EnergyCorps_Spark_18: -36849804
+      ElderEntP2_EnergyCorps_Spark_19: -1034657076
+      ElderEntP2_EnergyCorps_Spark_2: -2022638092
+      ElderEntP2_EnergyCorps_Spark_20: 2057173642
+      ElderEntP2_EnergyCorps_Spark_21: -676330663
+      ElderEntP2_EnergyCorps_Spark_22: 1648815752
+      ElderEntP2_EnergyCorps_Spark_23: -53374201
+      ElderEntP2_EnergyCorps_Spark_3: -824233211
+      ElderEntP2_EnergyCorps_Spark_4: -124053560
+      ElderEntP2_EnergyCorps_Spark_5: -493648158
+      ElderEntP2_EnergyCorps_Spark_6: 2074232969
+      ElderEntP2_EnergyCorps_Spark_7: 1607355704
+      ElderEntP2_EnergyCorps_Spark_8: -1899732094
+      ElderEntP2_EnergyCorps_Spark_9: -203973975
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

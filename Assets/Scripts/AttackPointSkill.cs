@@ -5,12 +5,14 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class AttackPointSkill : MonoBehaviour
 {
+    [SerializeField] LayerMask _attackMask;
+    public float SkillPower;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        MonsterController monster = collision.gameObject.GetComponent<MonsterController>();
-        if (monster != null)
+        if (_attackMask.Contain(collision.gameObject.layer))
         {
-            monster.TakeDamage(Manager.Game.Player.CurrentHead.Data.skillPower);
+            collision.GetComponent<IDamagable>().TakeDamage(SkillPower);
         }
     }
 }
