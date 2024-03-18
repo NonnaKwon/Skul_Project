@@ -136,7 +136,7 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
     private void DownHit()
     {
         Debug.Log("DownHit Skill()");
-        _animator.Play("DownHit");
+        //_animator.Play("DownHit");
         StartCoroutine(CoDown());
     }
 
