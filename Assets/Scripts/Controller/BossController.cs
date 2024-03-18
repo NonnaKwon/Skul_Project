@@ -48,7 +48,7 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
         _time = 0;
         _hp = _maxHp;
         _connectUI.InitHPBar(_maxHp);
-        _skillHp = 50;
+        _skillHp = 80;
 
         _damageEffect = Resources.Load("Prefabs/Effects/AttackEffect").GetComponent<PooledObject>();
         _rightHandCollider = _rightHand.GetComponentInChildren<AttackPointSkill>();
@@ -256,11 +256,10 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
         {
             ball.GetComponent<Animator>().Play("Ball");
             mainBall.transform.position = _energyBallPos.position;
-            Vector2 targetPos = Manager.Game.Player.transform.position;
-            while (mainBall.transform.position.y >= targetPos.y + 1)
+            Vector2 targetDir = Manager.Game.Player.transform.position - mainBall.transform.position;
+            while (mainBall.transform.position.y >= -20)
             {
-                Vector2 transPos = Vector2.Lerp(mainBall.transform.position, targetPos, Time.deltaTime * speed);
-                mainBall.transform.position = transPos;
+                mainBall.transform.Translate(targetDir * speed * Time.deltaTime);
                 yield return null;
             }
             yield return new WaitForSeconds(2f);
