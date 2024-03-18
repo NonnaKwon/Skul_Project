@@ -43,6 +43,15 @@ public class Define
         Die
     }
 
+    public enum BossState
+    {
+        Intro,
+        Idle,
+        Pattern,
+        Down,
+        Phase,
+        Die
+    }
 
     public enum UIEvent
     {

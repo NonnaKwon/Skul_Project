@@ -15,6 +15,7 @@ public class SceneManager : Singleton<SceneManager>
     
 
     private BaseScene curScene;
+    public bool IsStoryMode { get { return dialog.gameObject.activeSelf; } }
 
     public BaseScene GetCurScene()
     {

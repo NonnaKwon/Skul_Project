@@ -121,7 +121,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: bosshand_0
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 59
+        width: 168
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe586f3b1c35a6d4eb4893d6ded46b93
+      internalID: 1390644633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshand_1
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 59
+        width: 166
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e73f198c8eac7e24794d472a1dd76f10
+      internalID: 318155900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshand_2
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 59
+        width: 168
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df1d91358ef062642b3bef946bd57035
+      internalID: -730250827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshand_3
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 59
+        width: 170
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 299f36ff56f03614a8c2448fa9c7b473
+      internalID: -1909878225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshand_4
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 59
+        width: 166
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38b169da9bb808841bf95d1291e87050
+      internalID: 1159510738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshand_5
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 59
+        width: 168
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54bafa6990f120a46a441b340de20869
+      internalID: 14686886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshand_6
+      rect:
+        serializedVersion: 2
+        x: 1574
+        y: 59
+        width: 168
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 573cbb1dc2a844143947652197d6ce6b
+      internalID: 2070541531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshand_7
+      rect:
+        serializedVersion: 2
+        x: 1831
+        y: 59
+        width: 166
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad69a790f0953d4ba1c2846cc8837dd
+      internalID: -416121678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshand_8
+      rect:
+        serializedVersion: 2
+        x: 2086
+        y: 59
+        width: 168
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89d4d5e8ec7a682479997ff2ea60e26d
+      internalID: 1712889979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshand_9
+      rect:
+        serializedVersion: 2
+        x: 2342
+        y: 59
+        width: 170
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 252b3b2d7f519cc41a1ea9e8bbb1d3c4
+      internalID: -407177341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshand_10
+      rect:
+        serializedVersion: 2
+        x: 2599
+        y: 59
+        width: 166
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d67ea9dd22e5fd448f2de49409f2123
+      internalID: 747136556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshand_11
+      rect:
+        serializedVersion: 2
+        x: 2854
+        y: 59
+        width: 168
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8ae8f0a82c5ea6449752583b98fe559
+      internalID: 1461876337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +384,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bosshand_0: 1390644633
+      bosshand_1: 318155900
+      bosshand_10: 747136556
+      bosshand_11: 1461876337
+      bosshand_2: -730250827
+      bosshand_3: -1909878225
+      bosshand_4: 1159510738
+      bosshand_5: 14686886
+      bosshand_6: 2070541531
+      bosshand_7: -416121678
+      bosshand_8: 1712889979
+      bosshand_9: -407177341
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
