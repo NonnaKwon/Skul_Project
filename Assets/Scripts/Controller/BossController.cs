@@ -48,7 +48,7 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
         _time = 0;
         _hp = _maxHp;
         _connectUI.InitHPBar(_maxHp);
-        _skillHp = 40;
+        _skillHp = 50;
 
         _damageEffect = Resources.Load("Prefabs/Effects/AttackEffect").GetComponent<PooledObject>();
         _rightHandCollider = _rightHand.GetComponentInChildren<AttackPointSkill>();
@@ -75,6 +75,8 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
             _time += Time.deltaTime;
             _connectUI.TimeUI = _time;
         }
+        if (_hp <= 0)
+            stateMachine.ChangeState(BossState.Die);
     }
 
     private void Skill()
@@ -83,7 +85,7 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
         stateMachine.ChangeState(BossState.Pattern);
         if (_hp < _skillHp)
         {
-            _curPower = 45;
+            Debug.Log("zz");
             EnergyBall();
         }
         else
@@ -239,25 +241,34 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
     {
         Debug.Log("EnergyBall Skill()");
         StartCoroutine(CoEnergyBall());
-        // 볼 프리팹을 들고와서 여러방향으로 Instantiate 하면됨. 360도를 8등분해서 벡터로 넘겨줘.
-        // 8방향 볼 쏘기
-        // 3번 하고 쓰러짐 -> 상태 Down
-        // 플레이어 방향으로 큰 볼 던지기
-
     }
 
     IEnumerator CoEnergyBall()
     {
         int count = 3;
+        int speed = 3;
+
         _animator.Play("EnergyBall");
         yield return new WaitForSeconds(3f);
+        GameObject ball = Instantiate(_energyBallPrefab, _energyBallPos.position, _energyBallPos.rotation);
+        GameObject mainBall = Instantiate(_energyMainBallPrefab, _energyBallPos.position, _energyBallPos.rotation);
         while (count-- > 0)
         {
-            Instantiate(_energyBallPrefab, _energyBallPos.position, _energyBallPos.rotation);
-            yield return new WaitForSeconds(1.3f);
+            ball.GetComponent<Animator>().Play("Ball");
+            mainBall.transform.position = _energyBallPos.position;
+            Vector2 targetPos = Manager.Game.Player.transform.position;
+            while (mainBall.transform.position.y >= targetPos.y + 1)
+            {
+                Vector2 transPos = Vector2.Lerp(mainBall.transform.position, targetPos, Time.deltaTime * speed);
+                mainBall.transform.position = transPos;
+                yield return null;
+            }
+            yield return new WaitForSeconds(2f);
         }
 
-        stateMachine.ChangeState(BossState.Idle);
+        Destroy(ball);
+        Destroy(mainBall);
+        stateMachine.ChangeState(BossState.Down);
     }
 
 
@@ -343,7 +354,8 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
         private float _time;
         public override void Enter()
         {
-            _downTime = 5;
+            owner._animator.Play("DownState");
+            _downTime = 7;
             _time = 0;
         }
 
@@ -356,6 +368,11 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
         {
             if (_downTime < _time)
                 owner.stateMachine.ChangeState(BossState.Idle);
+        }
+
+        public override void Exit()
+        {
+            owner._animator.Play("Idle");
         }
 
     }

@@ -3542,7 +3542,7 @@ MonoBehaviour:
   _minTIme: 6
   _rightHand: {fileID: 768950558}
   _leftHand: {fileID: 1055068604}
-  _energyBallPos: {fileID: 0}
+  _energyBallPos: {fileID: 2119183041}
 --- !u!61 &1797256274
 BoxCollider2D:
   m_ObjectHideFlags: 0
