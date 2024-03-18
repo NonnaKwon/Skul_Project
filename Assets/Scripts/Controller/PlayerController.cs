@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
         {
             if (_stackJumpCount < CurrentHead.Data.jumpCount)
                 Jump();
-        }   
+        }
     }
 
     private void OnDown(InputValue value)

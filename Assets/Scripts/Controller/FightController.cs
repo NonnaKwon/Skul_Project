@@ -87,6 +87,8 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
         _attackCount++;
         if (_attackCount > _currentHead.Data.attackCount)
             return;
+        if (_rigid.velocity.y > 1 || _rigid.velocity.y < -1)
+            _animator.Play("JumpAttack");
         _animator.SetInteger("AttackCount", _attackCount);
         StartCoroutine(CoAttack());
     }

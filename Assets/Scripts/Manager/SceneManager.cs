@@ -52,7 +52,7 @@ public class SceneManager : Singleton<SceneManager>
         dialog.Unload();
     }
 
-    public void LoadNextStory(Transform loadTransform)
+    public void LoadNextStory(Transform loadTransform) 
     {
         //regenPos = loadTransform;
         StartCoroutine(CoLoadNextStory(loadTransform));

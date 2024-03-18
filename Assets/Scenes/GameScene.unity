@@ -45945,6 +45945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ce7adb7653a514bbe1f9ed14cd4aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cam: {fileID: 943441686}
 --- !u!114 &2128657133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45957,11 +45958,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f05b7a54aa24445a2b215bd17eb11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cam: {fileID: 943441686}
   MoveSpeeds:
-  - 2.3
-  - 2
-  - 1
-  - 0
+  - -0.1
+  - -0.5
+  - -0.7
+  - -1
   Layers:
   - {fileID: 899155796}
   - {fileID: 1922618747}
