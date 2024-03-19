@@ -9,9 +9,10 @@ public class Door : MonoBehaviour
     [SerializeField] Transform LoadPos;
     [SerializeField] List<MonsterController> monsterList;
     [SerializeField] bool _isEnter = false;
-    [SerializeField] private bool _isActive = false;
+    [SerializeField] bool _isActive = false;
     public int MonsterCount { get { return monsterList.Count; } }
-    
+    public bool OnDoorActive { get { return _isActive; } }
+
     Animator _animator;
 
     private void Start()

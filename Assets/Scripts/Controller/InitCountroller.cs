@@ -17,8 +17,12 @@ public class MonsterCounter : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (_isActive)
-            _ui.MonsterCountUpdate(_connectDoor.MonsterCount);
+        if (!_isActive)
+            return;
+        _ui.MonsterCountUpdate(_connectDoor.MonsterCount);
+
+        if (_connectDoor.OnDoorActive)
+            _isActive = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
