@@ -127,10 +127,14 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
 
     }
 
+    public void AttackPoint()
+    {
+        _baseAttackPoint.Attack();
+    }
 
     private IEnumerator CoAttack()
     {
-        _baseAttackPoint.Attack();
+        //_baseAttackPoint.Attack();
         yield return new WaitForSeconds(0.5f);
         if (_attackCount > 1)
             yield return new WaitForSeconds(0.1f * _attackCount);

@@ -65,6 +65,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6113559371980907618}
   - component: {fileID: 7389448256674156989}
+  - component: {fileID: 3047283950349803306}
   m_Layer: 0
   m_Name: HitPoint
   m_TagString: Untagged
@@ -103,6 +104,41 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   SkillPower: 70
+--- !u!58 &3047283950349803306
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5822162372712943487}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.6652888
 --- !u!1 &8806425661143959812
 GameObject:
   m_ObjectHideFlags: 0

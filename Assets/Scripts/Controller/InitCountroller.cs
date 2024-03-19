@@ -12,7 +12,6 @@ public class MonsterCounter : MonoBehaviour
     private void Start()
     {
         _ui = Manager.Scene.GetCurScene<GameScene>().UI_GameScene;
-        Debug.Log(_ui);
         _isActive = false;
     }
 

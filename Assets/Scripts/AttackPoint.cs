@@ -22,7 +22,6 @@ public class AttackPoint : MonoBehaviour
 
     public void Attack()
     {
-        Manager.Pool.GetPool(_damageEffect, transform.position, transform.rotation);
         int size = Physics2D.OverlapCircleNonAlloc(transform.position, _attackRange, _colliders,_mask);
         Debug.Log(size);
         for (int i = 0; i < size; i++)
@@ -30,6 +29,7 @@ public class AttackPoint : MonoBehaviour
             IDamagable damagable = _colliders[i].gameObject.GetComponent<IDamagable>();
             if (damagable != null)
             {
+                Manager.Pool.GetPool(_damageEffect, transform.position, transform.rotation);
                 damagable.TakeDamage(_fightController.GetPower());
             }
         }

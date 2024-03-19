@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: big_knight_move_0
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 32
+        width: 106
+        height: 95
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6737c90c969e25459467f8bc4ce7b36
+      internalID: -101512042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_move_1
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 32
+        width: 108
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74fe9a0d0cb43414cb4bea611e35c083
+      internalID: -2023587674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_move_2
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 32
+        width: 104
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad0fb4cc5e5f17b44a7ab0dd4f7c74c9
+      internalID: -810901609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_move_3
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 32
+        width: 104
+        height: 93
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af13badedddd39f4b837f4ea0518cc0d
+      internalID: -1946606632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_move_4
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 32
+        width: 102
+        height: 94
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8431de766f73b674fad4e69c7ea1968f
+      internalID: -1909542094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_move_5
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 32
+        width: 99
+        height: 93
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 441e51d0a2b2a3f48a075e4241411410
+      internalID: -286332798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_move_6
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 32
+        width: 102
+        height: 95
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 020b4705102646945969b2a50cc4e50b
+      internalID: -1961682920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_move_7
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 32
+        width: 104
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a7544189e4f094b975b08338f69cec
+      internalID: -949825893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +300,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      big_knight_move_0: -101512042
+      big_knight_move_1: -2023587674
+      big_knight_move_2: -810901609
+      big_knight_move_3: -1946606632
+      big_knight_move_4: -1909542094
+      big_knight_move_5: -286332798
+      big_knight_move_6: -1961682920
+      big_knight_move_7: -949825893
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

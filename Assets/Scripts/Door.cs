@@ -19,7 +19,6 @@ public class Door : MonoBehaviour
         _animator = GetComponent<Animator>();
         if (monsterList.Count == 0)
             DoorActive();
-        Debug.Log(_animator);
     }
 
     private void Update()

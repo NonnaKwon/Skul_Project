@@ -236,7 +236,7 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
     IEnumerator CoEnergyBall()
     {
         int count = 3;
-        int speed = 3;
+        int speed = 2;
 
         _animator.Play("EnergyBall");
         yield return new WaitForSeconds(3f);

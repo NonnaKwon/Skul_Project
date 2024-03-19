@@ -110,9 +110,13 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
         StartCoroutine(CoAttack());
     }
 
-    private IEnumerator CoAttack()
+    public void AttackPoint()
     {
         _baseAttackPoint.Attack();
+    }
+    private IEnumerator CoAttack()
+    {
+        //_baseAttackPoint.Attack();
         yield return new WaitForSeconds(0.5f);
         if (_attackCount > 1)
             yield return new WaitForSeconds(0.3f * _maxAttackCount);

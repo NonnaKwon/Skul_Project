@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,469 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: big_knight_attacka_0
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 31
+        width: 79
+        height: 108
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d91d44e0b1e4145a25a9b1c92e92f5
+      internalID: -1643525665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_1
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 31
+        width: 93
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8bb2d142335624db0bbbf6a2d3952d
+      internalID: -847671876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_2
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 31
+        width: 92
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b97f158ea98e7ef4a95d8f1628f8c332
+      internalID: 1067421021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_3
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 31
+        width: 93
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 815c3dd373c156d43bc315869e8f9b9d
+      internalID: -756294183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_4
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 31
+        width: 92
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d2289e8a54ae8b428d550d1d6af90a4
+      internalID: 1293512807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_5
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 31
+        width: 92
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 357e8c3a1c206dc459cbd3132bff3f5b
+      internalID: -198385827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_6
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 31
+        width: 93
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23df036e4b96c3741a5e84df7450a6d3
+      internalID: -641492452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_7
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 31
+        width: 92
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff558cc028a7344a9fe90a84b034c70
+      internalID: 1438788632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_8
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 31
+        width: 93
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab846d46e47234744bdd20c0801ca327
+      internalID: -1872292016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_9
+      rect:
+        serializedVersion: 2
+        x: 1639
+        y: 31
+        width: 108
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48a26cd845a0f8844ba9b6eec9f8d2ed
+      internalID: -523880872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_10
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 31
+        width: 98
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 365c18a7c1ee9fe45b36f6f295c278ad
+      internalID: 2105776571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_11
+      rect:
+        serializedVersion: 2
+        x: 1827
+        y: 126
+        width: 6
+        height: 5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a8b208d223352a4aad27b0390e72f5d
+      internalID: -2120933664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_12
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 31
+        width: 95
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca26d82da842b14cb1ebc8e538790e4
+      internalID: 870897177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_13
+      rect:
+        serializedVersion: 2
+        x: 1804
+        y: 109
+        width: 9
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1364069e9c0b914fb4ed06509466f37
+      internalID: -437992351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_14
+      rect:
+        serializedVersion: 2
+        x: 1970
+        y: 31
+        width: 96
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1dbf776ec319ae49b8ebcc63962ba02
+      internalID: -627278782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_15
+      rect:
+        serializedVersion: 2
+        x: 2129
+        y: 31
+        width: 98
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9fabdb49b79528449b6cd5b2206cb50
+      internalID: 1142478493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_16
+      rect:
+        serializedVersion: 2
+        x: 2289
+        y: 31
+        width: 98
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afeb639589197d045b6d8bc6eebcf2fd
+      internalID: -1097161019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_17
+      rect:
+        serializedVersion: 2
+        x: 2449
+        y: 31
+        width: 98
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d6abe438fb663741a2ef6a72c0016da
+      internalID: 1997073114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_18
+      rect:
+        serializedVersion: 2
+        x: 2609
+        y: 31
+        width: 98
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06880f251e637764c97f768805021cea
+      internalID: 1737268749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_19
+      rect:
+        serializedVersion: 2
+        x: 2770
+        y: 31
+        width: 96
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd527ead6677315408eb34e4d0179134
+      internalID: 1682705082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_20
+      rect:
+        serializedVersion: 2
+        x: 2929
+        y: 31
+        width: 98
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 630f0500c6eabfb43aa54cc4e59a1159
+      internalID: 410646699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_knight_attacka_21
+      rect:
+        serializedVersion: 2
+        x: 3090
+        y: 31
+        width: 97
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0a5d6d497ce30d44bb8e30912d2e508
+      internalID: -1033403787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +594,29 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      big_knight_attacka_0: -1643525665
+      big_knight_attacka_1: -847671876
+      big_knight_attacka_10: 2105776571
+      big_knight_attacka_11: -2120933664
+      big_knight_attacka_12: 870897177
+      big_knight_attacka_13: -437992351
+      big_knight_attacka_14: -627278782
+      big_knight_attacka_15: 1142478493
+      big_knight_attacka_16: -1097161019
+      big_knight_attacka_17: 1997073114
+      big_knight_attacka_18: 1737268749
+      big_knight_attacka_19: 1682705082
+      big_knight_attacka_2: 1067421021
+      big_knight_attacka_20: 410646699
+      big_knight_attacka_21: -1033403787
+      big_knight_attacka_3: -756294183
+      big_knight_attacka_4: 1293512807
+      big_knight_attacka_5: -198385827
+      big_knight_attacka_6: -641492452
+      big_knight_attacka_7: 1438788632
+      big_knight_attacka_8: -1872292016
+      big_knight_attacka_9: -523880872
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

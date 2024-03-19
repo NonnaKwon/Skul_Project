@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hunter
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  animator: {fileID: 9100000, guid: 8499480991d1ffb4184f9668fbd6f173, type: 2}
+  animator: {fileID: 9100000, guid: fe2a2b23c184a6b40bdc04a2acbcaf68, type: 2}
   headName: Hunter
   jumpCount: 1
   maxHp: 200

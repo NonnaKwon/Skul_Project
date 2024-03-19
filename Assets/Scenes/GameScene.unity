@@ -4058,7 +4058,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.866768, y: 2.54743, z: -10}
+  m_LocalPosition: {x: -20.89907, y: 2.54739, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -56313,10 +56313,6 @@ PrefabInstance:
       propertyPath: _connectUI
       value: 
       objectReference: {fileID: 917889411}
-    - target: {fileID: 847620608880416762, guid: 8df65a9345f543d49959ac51871f6881, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.3
-      objectReference: {fileID: 0}
     - target: {fileID: 874506501635692818, guid: 8df65a9345f543d49959ac51871f6881, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.89
@@ -56357,29 +56353,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1424415096934106474, guid: 8df65a9345f543d49959ac51871f6881, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 938b6942c78a43b4c978b33a9282188b, type: 2}
-    - target: {fileID: 5711807981715559629, guid: 8df65a9345f543d49959ac51871f6881, type: 3}
-      propertyPath: _attackRange
-      value: 1.2
-      objectReference: {fileID: 0}
     - target: {fileID: 5948349000821771807, guid: 8df65a9345f543d49959ac51871f6881, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5948349000821771807, guid: 8df65a9345f543d49959ac51871f6881, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8638398766379049611, guid: 8df65a9345f543d49959ac51871f6881, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8638398766379049611, guid: 8df65a9345f543d49959ac51871f6881, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -479397279
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
