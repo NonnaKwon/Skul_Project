@@ -12,12 +12,21 @@ public class UI_BossMap : UI_Scene
     {
         hour,
         min,
-        sec
+        sec,
+        ClearHour,
+        ClearMin,
+        ClearSec
     }
 
     enum GameObjects
     {
-        HP
+        HP,
+        ClearScreen
+    }
+
+    enum Buttons
+    {
+        TitleButton
     }
 
     public override bool Init()
@@ -27,7 +36,9 @@ public class UI_BossMap : UI_Scene
 
         BindText(typeof(Texts));
         BindObject(typeof(GameObjects));
-
+        BindButton(typeof(Buttons));
+        GetButton((int)Buttons.TitleButton).onClick.AddListener(GoToTitleScene);
+        GetObject((int)GameObjects.ClearScreen).SetActive(false);
         return true;
     }
 
@@ -53,6 +64,18 @@ public class UI_BossMap : UI_Scene
         GetObject((int)GameObjects.HP).GetComponent<Slider>().value -= damage;
     }
 
+    public void OpenEndingUI()
+    {
+        GetObject((int)GameObjects.ClearScreen).SetActive(true);
+        GetText((int)Texts.ClearSec).text = GetText((int)Texts.sec).text;
+        GetText((int)Texts.ClearMin).text = GetText((int)Texts.min).text;
+        GetText((int)Texts.ClearHour).text = GetText((int)Texts.hour).text;
+    }
 
+    public void GoToTitleScene()
+    {
+        Manager.Scene.LoadScene(Scene.TitleScene);
+    }
 
+    
 }

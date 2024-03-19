@@ -112,14 +112,14 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
 
     private void OnSkillS(InputValue value)
     {
-        _currentHead.SkillS();
-        _connectUI.SkillCoolTime('S');
+        if(_currentHead.SkillS())
+            _connectUI.SkillCoolTime('S');
     }
     
     private void OnSkillA(InputValue value)
     {
-        _currentHead.SkillA();
-        _connectUI.SkillCoolTime('A');
+        if(_currentHead.SkillA())
+            _connectUI.SkillCoolTime('A');
     }
 
 

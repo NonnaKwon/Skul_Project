@@ -41,8 +41,6 @@ public class Skul : Head
 
     private void WearHead(bool isAnimation = true)
     {
-        Debug.Log("Wear Head");
-        //코루틴으로 Interact 상태로 변경
         if(_head != null)
         {
             Destroy(_head.gameObject);
@@ -53,19 +51,20 @@ public class Skul : Head
             _playerAnimator.Play("Reborn");
     }
 
-    public override void SkillS()
+    public override bool SkillS()
     {
         if (_head == null)
-            return;
+            return false;
 
         Manager.Game.Player.transform.position = _head.transform.position;
         WearHead();
+        return true;
     }
 
-    public override void SkillA()
+    public override bool SkillA()
     {
         if (curTime < RegenTime || _head != null)
-            return;
+            return false;
         curTime = 0;
         float dis = 1;
         if (!Manager.Game.Player.IsRight)
@@ -74,5 +73,6 @@ public class Skul : Head
         Vector3 insPos = new Vector3(transform.position.x + dis, transform.position.y + 2.3f, transform.position.z );
         _head = Instantiate(_headPrefab, insPos, transform.rotation).GetComponent<SkulSkillObject>();
         _playerAnimator.runtimeAnimatorController = _skillAniController;
+        return true;
     }
 }

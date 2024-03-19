@@ -70,6 +70,7 @@ public class UI_Story : UI_Popup
         if (scene != null)
             scene.UI_GameScene.gameObject.SetActive(true);
         gameObject.SetActive(false);
+        
     }
 
 }

@@ -279,7 +279,7 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
 
         public override void Enter()
         {
-            Manager.Scene.StoryLoad("tutorial01_4");
+            Manager.Scene.StoryLoad("Boss");
         }
 
         public override void Update()
@@ -394,6 +394,7 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
         public DieState(BossController owner) : base(owner) { }
         private float time = 0;
         private float dieTime = 3;
+        private bool openUI = false;
         public override void Enter()
         {
             time = 0;
@@ -404,16 +405,14 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
         public override void Update()
         {
             time += Time.deltaTime;
-            Debug.Log(time);
-            if (time >= dieTime)
-                GoTitle();
+            if (!openUI && time >= dieTime)
+                Ending();
         }
 
-        public void GoTitle()
+        public void Ending()
         {
-            Debug.Log("Go to title");
-            owner._connectUI.gameObject.SetActive(false);
-            Manager.Scene.LoadScene(Define.Scene.TitleScene);
+            openUI = true;
+            owner._connectUI.OpenEndingUI();
             Destroy(owner.gameObject);
         }
     }
