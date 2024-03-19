@@ -75,7 +75,7 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
         if (_controller.IsRight) //왼쪽으로 돌아있으면
             _rigid.velocity = new Vector2(DAMAGED_POWER, 0);
         else
-            _rigid.velocity = new Vector2(-DAMAGED_POWER, 1);
+            _rigid.velocity = new Vector2(-DAMAGED_POWER, 0);
         yield return new WaitForSeconds(0.1f);
     }
 
