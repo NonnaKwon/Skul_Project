@@ -11,7 +11,7 @@ public class SceneManager : Singleton<SceneManager>
     [SerializeField] Slider loadingBar;
     [SerializeField] float fadeTime;
     [SerializeField] UI_Story dialog;
-    [SerializeField] Transform regenPos;
+    public Transform RegenPos;
     
 
     private BaseScene curScene;
@@ -65,7 +65,7 @@ public class SceneManager : Singleton<SceneManager>
         {
             Manager.Scene.LoadScene(Define.Scene.GameScene);
         }
-        LoadNextStory(regenPos);
+        LoadNextStory(RegenPos);
     }
 
     IEnumerator CoLoadNextStory(Transform loadTransform)

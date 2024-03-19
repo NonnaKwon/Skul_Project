@@ -30,6 +30,7 @@ public class MonsterCounter : MonoBehaviour
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
         if (player != null)
         {
+            Manager.Scene.RegenPos = transform;
             _ui.MonsterCountUpdate(_connectDoor.MonsterCount);
             _isActive = true;
         }

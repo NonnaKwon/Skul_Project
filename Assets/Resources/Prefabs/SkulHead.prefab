@@ -107,7 +107,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &4058593529157538232
 MonoBehaviour:
@@ -190,6 +190,7 @@ MonoBehaviour:
   _attackMask:
     serializedVersion: 2
     m_Bits: 256
+  SkillPower: 0
 --- !u!61 &1078481677354193991
 BoxCollider2D:
   m_ObjectHideFlags: 0
