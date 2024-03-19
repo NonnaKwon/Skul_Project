@@ -76,20 +76,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeHead",
+                    "type": "Button",
+                    "id": "347e6d61-a2f0-4216-9079-fc8a400a9a94",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "f25b45b6-9542-43c6-92c7-ea54e82b3a75",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "d63a8a6c-100d-431e-a099-b31f36efa899",
@@ -197,6 +195,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SkillS",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "973b0bf1-c383-43ec-b72e-9d10997c3024",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeHead",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e97ae5323af62b489998d46ce7aa97b, type: 3}
+  m_Name: Hunter
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  animator: {fileID: 9100000, guid: 8499480991d1ffb4184f9668fbd6f173, type: 2}
+  headName: Hunter
+  jumpCount: 1
+  maxHp: 200
+  power: 5
+  skillPower: 10
+  defencePower: 0
+  attackCount: 1
+  coolTimeA: 6
+  coolTimeS: 7

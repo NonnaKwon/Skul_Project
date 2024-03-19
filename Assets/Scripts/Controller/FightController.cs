@@ -122,6 +122,10 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
             _connectUI.SkillCoolTime('A');
     }
 
+    private void OnChangeHead(InputValue value)
+    {
+
+    }
 
 
     private IEnumerator CoAttack()
