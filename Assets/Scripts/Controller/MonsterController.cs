@@ -32,6 +32,7 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
     SpriteRenderer _renderer;
     Vector3 _attackPointPosition;
     PooledObject _damageEffect;
+    PooledObject _dieEffect;
 
     private StateMachine<MonsterState> stateMachine;
     public StateMachine<MonsterState> StateMachine { get { return stateMachine; } }
@@ -61,6 +62,7 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
         _target = FindObjectOfType<PlayerController>().gameObject;
         _attackPointPosition = _baseAttackPoint.gameObject.GetComponent<Transform>().localPosition;
         _damageEffect = Resources.Load("Prefabs/Effects/AttackEffect").GetComponent<PooledObject>();
+        _dieEffect = Resources.Load("Prefabs/Effects/DieEffect").GetComponent<PooledObject>();
         _hpSlider.maxValue = _maxHp;
         _hpSlider.value = _maxHp;
         stateMachine.Start(MonsterState.Idle);
@@ -92,10 +94,6 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
         transform.Translate(new Vector3(targetRotation.x * _moveSpeed * Time.deltaTime, 0, 0), Space.World);
     }
 
-    private void Die()
-    {
-        StartCoroutine(CoDie());
-    }
 
     public float GetPower() 
     { 
@@ -136,9 +134,7 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
     IEnumerator CoTakeDamage()
     {
         stateMachine.ChangeState(MonsterState.Damaged);
-        Vector3 randomVec = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
         yield return new WaitForSeconds(0.1f);
-        Manager.Pool.GetPool(_damageEffect, transform.position + randomVec, transform.rotation);
         
         if (_renderer.flipX) //왼쪽으로 돌아있으면
             _rigid.velocity = new Vector2(DAMAGED_POWER, 0);
@@ -148,11 +144,6 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
         stateMachine.ChangeState(MonsterState.Trace);
     }
 
-    IEnumerator CoDie()
-    {
-        yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
-    }
 
     private class MonsterStateClass : BaseState<MonsterState>
     {
@@ -274,8 +265,9 @@ public class MonsterController : MonoBehaviour, IDamagable, IAttackable
 
         public override void Enter()
         {
-            owner._animator.Play("Die");
-            owner.Die();
+            Vector2 insPos = new Vector2(owner.transform.position.x, owner.transform.position.y + 1);
+            Manager.Pool.GetPool(owner._dieEffect, insPos, owner.transform.rotation);
+            Destroy(owner.gameObject);
         }
 
 

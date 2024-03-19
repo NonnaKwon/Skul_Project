@@ -75,8 +75,6 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
             _time += Time.deltaTime;
             _connectUI.TimeUI = _time;
         }
-        if (_hp <= 0)
-            stateMachine.ChangeState(BossState.Die);
     }
 
     private void Skill()
@@ -110,19 +108,11 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
         Debug.Log("Boss : 데미지를 받았다!");
         _hp -= damage;
         _connectUI.DecreaseHP(damage);
-        StartCoroutine(CoTakeDamage());
     }
 
-    IEnumerator CoTakeDamage()
-    {
-        Vector3 randomVec = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
-        Manager.Pool.GetPool(_damageEffect, transform.position + randomVec, transform.rotation);
-        yield return new WaitForSeconds(0.5f);
-    }
 
     public void Attack()
     {
-
 
     }
 
@@ -263,11 +253,14 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
                 yield return null;
             }
             yield return new WaitForSeconds(2f);
+            if (stateMachine.CurState == BossState.Die)
+                break;
         }
 
         Destroy(ball);
         Destroy(mainBall);
-        stateMachine.ChangeState(BossState.Down);
+        if (stateMachine.CurState != BossState.Die)
+            stateMachine.ChangeState(BossState.Down);
     }
 
 
@@ -324,7 +317,8 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
 
         public override void Transition()
         {
-
+            if (owner._hp <= 0)
+                owner.stateMachine.ChangeState(BossState.Die);
         }
 
     }
@@ -340,7 +334,8 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
         }
         public override void Transition()
         {
-
+            if (owner._hp <= 0)
+                owner.stateMachine.ChangeState(BossState.Die);
         }
 
     }
@@ -367,6 +362,8 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
         {
             if (_downTime < _time)
                 owner.stateMachine.ChangeState(BossState.Idle);
+            if (owner._hp <= 0)
+                owner.stateMachine.ChangeState(BossState.Die);
         }
 
         public override void Exit()
@@ -395,19 +392,29 @@ public class BossController : MonoBehaviour, IDamagable, IAttackable
     private class DieState : BossStateClass
     {
         public DieState(BossController owner) : base(owner) { }
-
+        private float time = 0;
+        private float dieTime = 3;
         public override void Enter()
         {
+            time = 0;
+            owner._animator.Play("Die");
+            Manager.Game.Player.StateMachine.ChangeState(PlayerState.Interact);
         }
 
-        public override void Transition()
+        public override void Update()
         {
-
+            time += Time.deltaTime;
+            Debug.Log(time);
+            if (time >= dieTime)
+                GoTitle();
         }
 
-        public override void Exit()
+        public void GoTitle()
         {
-            Manager.UI.ClearPopUpUI();
+            Debug.Log("Go to title");
+            owner._connectUI.gameObject.SetActive(false);
+            Manager.Scene.LoadScene(Define.Scene.TitleScene);
+            Destroy(owner.gameObject);
         }
     }
 }

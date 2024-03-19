@@ -152,4 +152,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoRelease: 1
-  releaseTime: 2
+  releaseTime: 1

@@ -77,9 +77,6 @@ public class FightController : MonoBehaviour,IDamagable,IAttackable
         else
             _rigid.velocity = new Vector2(-DAMAGED_POWER, 1);
         yield return new WaitForSeconds(0.1f);
-        Vector3 randomVec = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0);
-        Manager.Pool.GetPool(_damageEffect, transform.position + randomVec, transform.rotation);
-        yield return new WaitForSeconds(0.5f);
     }
 
     public void Attack()

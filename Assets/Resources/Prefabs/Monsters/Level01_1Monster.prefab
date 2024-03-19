@@ -241,7 +241,7 @@ MonoBehaviour:
   _maxHp: 12
   _power: 3
   _maxAttackCount: 1
-  _attackTime: 2
+  _attackTime: 1
 --- !u!1 &4137797869868359620
 GameObject:
   m_ObjectHideFlags: 0

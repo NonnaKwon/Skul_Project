@@ -61,6 +61,10 @@ public class SceneManager : Singleton<SceneManager>
     public void RegenLoad()
     {
         Manager.Game.Player.PlayerInit();
+        if(Manager.Game.IsBoss)
+        {
+            Manager.Scene.LoadScene(Define.Scene.GameScene);
+        }
         LoadNextStory(regenPos);
     }
 
@@ -70,8 +74,9 @@ public class SceneManager : Singleton<SceneManager>
         yield return FadeOut(Color.black);
 
         Manager.Game.Player.transform.position = loadTransform.position;
-        FindObjectOfType<BackgroundController>().gameObject.transform.position 
-            = new Vector2(loadTransform.position.x, loadTransform.position.y + 11f);
+        BackgroundController bc = FindObjectOfType<BackgroundController>();
+        if(bc != null)
+            bc.gameObject.transform.position = new Vector2(loadTransform.position.x, loadTransform.position.y + 11f);
 
         yield return new WaitForSeconds(1f);
         yield return FadeIn(Color.black);
